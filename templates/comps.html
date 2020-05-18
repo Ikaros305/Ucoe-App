@@ -1,0 +1,99 @@
+{% extends "layout.html" %} {% block content %}
+<div style="outline: none; background-color: white;" tabindex="-1" role="group">
+  <div class="clip-event-training">
+    <div class="Container-sc-1e7uphc-0 bKAWec jghleH">
+      <div class="head-training">
+        <div class="training-inner">
+          <div class="item hero-training">
+            <div class="training-row">
+              <div class="block-content no-padding-topbottom">
+                <div class="col-xs-12 hero-wrapper">
+                  <article class="module">
+                    <!-- <div class="col-xs-12  featured-related">
+                    <a
+                      target="_self"
+                      data-linktype="topic"
+                      class="training-link"
+                      data-analytics-content-type="topic"
+                      data-analytics-link-name=" artificial intelligence"
+                      data-linkcomponentname="featured"
+                      >{props.eventDetails.eventType}</a
+                    >
+                  </div> -->
+                    <div class="module-title-wraper">
+                      <h2 class="training-title">
+                        Computer Engineering <br />
+                        <!-- <span class="designation"
+                        >{props.eventDetails.designation}</span
+                      > -->
+                      </h2>
+                      <!-- <p class="training-inline">
+                      {props.eventDetails.description}
+                    </p> -->
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="Container-sc-1e7uphc-0 bKAWec bKAWec1 jghleH">
+    <div class="event-wrapper">
+      <article class="event-article">
+        <div class="module-title-wraper">
+          <p class="training-inline" style="color: black;">
+            Computer Engineers contribute enormously to the progress of modern
+            human life. It is computer Engineers who enhance the efficiency of
+            power distribution networks, build the next-generation stock market
+            platform, design robots with artificial intelligence, build scalable
+            data warehouses that power search engines and allow a grandfather to
+            video-chat with his grandkids over Skype.
+          </p>
+        </div>
+        <div style="text-align: center;">
+          <iframe
+            class="vid"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/DDBYecUqssg?"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <p class="training-inline" style="color: black;">
+          Total Number of Seats: 120 <br />CAP: 96<br />
+          Institute Level: 24
+        </p>
+      </article>
+
+      {% for query in querys|reverse %} {% if query.val().domain == "COMPUTER"%}
+      <img src="{{query.val().linkcoverpage}}" alt="Default" />
+      <br />
+      TITLE: {{query.val().title}}
+      <br />
+      ISSUE: {{query.val().issue}}
+      <br />
+      DOMAIN: {{query.val().domain}}
+      <br />
+      <a href="{{query.val().link}}" download="">DOWNLOAD</a>
+      {%endif%}
+      <br /><br /><br />
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %} HI
+<br /><br />
+{% for query in querys|reverse %} NAME: {{query.val().name}}
+<br />
+DESCRIPTION: {{query.val().description}}
+<br />
+LINK: {{query.val().link}}
+
+<br /><br /><br />
+{% endfor %}

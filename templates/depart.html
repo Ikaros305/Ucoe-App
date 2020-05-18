@@ -1,0 +1,532 @@
+{% extends "layout.html" %} {% block content %}
+<div class="site-wrap" style="z-index: 20005;">
+  <div class="site-mobile-menu" style="z-index: 20006;">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <header class="site-navbar" role="banner" style="top: 0;">
+    <div class="container" style="max-width: 1340px;">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-8 d-none d-xl-block">
+          <nav
+            class="site-navigation position-relative text-right"
+            role="navigation"
+          >
+            <!-- <ul class="side" style="margin: 20px 0;">
+            <img class="nav-svg" src="static\svg\start.svg" alt="" />
+            <li class="side-li">
+              <a href="#webinar" class="active" style="">Webinars</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#events" style="">Upcoming Events</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#news" style="">News Feed</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#clan" style="">UCOE Clan</a>
+            </li>
+            <img class="nav-svg" src="static\svg\end.svg" alt="" />
+          </ul> -->
+            <ul class="site-menu side js-clone-nav mr-auto d-none d-lg-block">
+              <img class="nav-svg" src="..\static\svg\start1.svg" alt="" />
+              <li>
+                <a href="/home"><span class="n-link">Home</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+             <li>
+                <a href="/webinar"><span class="n-link">Webinar</span></a>
+
+                <!-- <ul class="dropdown arrow-top">
+                  <li><a href="comps">Computer Engineering</a></li>
+                  <li><a href="#">Information Technology</a></li>
+                  <li><a href="#">Civil Engineering</a></li>
+                  <li><a href="#">Electronics</a></li>
+                  <li><a href="#">Electronics & Telecommunication</a></li>
+                </ul> -->
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" /><li>
+                <a href="/events"><span class="n-link">Upcoming Events</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" /> 
+              <li  class="active">
+                <a href="/ucoeclan"><span class="n-link">Ucoe Clan</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+
+              <li>
+                <a href="/newsf"><span class="n-link">News Feed</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/courses"><span class="n-link">Courses</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="http://unibotbeta.000webhostapp.com"  target="_blank"
+                  ><span class="n-link">ChatBot</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/profile"><span class="n-link">Profile</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              {% if auth.current_user == None %}
+              <li>
+                <a href="/login"><span class="n-link">Login</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/signup"><span class="n-link">Signup</span></a>
+              </li>
+              {% else %}
+              <li>
+                <form method="POST" style="margin-bottom: 0;">
+                  <a href="#" style="text-decoration: none;">
+                    <button
+                      type="submit"
+                      name="submit"
+                      value="logout"
+                      style="all: unset;"
+                    >
+                      <span class="n-link">LogOut</span>
+                    </button></a
+                  >
+                </form>
+              </li>
+              {% endif %}
+              <img class="nav-svg" src="..\static\svg\end1.svg" alt="" />
+            </ul>
+          </nav>
+        </div>
+
+        <div
+          class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+          style="position: relative; top: 0; margin-left: 10px;"
+        >
+          <a href="#" class="site-menu-toggle js-menu-toggle text-black"
+            ><span class="icon-menu h3" style="font-size: 45px;"></span
+          ></a>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+{% if depart == "COMPUTER ENGINEERING" %}
+<div
+  style="outline: none; background-color: #9ea3f5; height: 100vh;"
+  tabindex="-1"
+  role="group"
+>
+  {% elif depart == "INFORMATION TECHNOLOGY" %}
+  <div
+    style="outline: none; background-color: #ff9aa2; height: 100vh;"
+    tabindex="-1"
+    role="group"
+  >
+    {% elif depart == "CIVIL ENGINEERING" %}
+    <div
+      style="outline: none; background-color: #c3e4fd; height: 100vh;"
+      tabindex="-1"
+      role="group"
+    >
+      {% elif depart == "ELECTRONICS" %}
+      <div
+        style="outline: none; background-color: #e2f0cb; height: 100vh;"
+        tabindex="-1"
+        role="group"
+      >
+        {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
+        <div
+          style="outline: none; background-color: #84b4c8; height: 100vh;"
+          tabindex="-1"
+          role="group"
+        >
+          {% endif %}
+          <!-- <div
+  style="outline: none; background-color: #9da2f4; height: 100vh;"
+  tabindex="-1"
+  role="group"
+> -->
+          {% if depart == "COMPUTER ENGINEERING" %}
+          <div
+            class="clip-event-training"
+            style="
+              background: url(../static/svg/CSVector.svg) no-repeat;
+              background-size: contain;
+              background-position: center top;
+              background-color: #9ea3f5;
+                  height: 53vh;
+              padding: 0;
+            "
+          >
+            {% elif depart == "INFORMATION TECHNOLOGY" %}
+            <div
+              class="clip-event-training"
+              style="
+                background: url(../static/svg/ITVector.svg) no-repeat;
+                background-size: contain;
+                background-position: 50% 70%;
+                background-color: #ff9aa2;
+                    height: 53vh;
+                padding: 0;
+              "
+            >
+              {% elif depart == "CIVIL ENGINEERING" %}
+              <div
+                class="clip-event-training"
+                style="
+                  background: url(../static/svg/CIVILVector.svg) no-repeat;
+                  background-size: contain;
+                  background-position: center 70%;
+                  background-color: #c3e4fd;
+                      height: 53vh;
+                  padding: 0;
+                "
+              >
+                {% elif depart == "ELECTRONICS" %}
+                <div
+                  class="clip-event-training"
+                  style="
+                    background: url(../static/svg/ETRXVector.svg) no-repeat;
+                    background-size: contain;
+                    background-position: center bottom;
+                    background-color: #e2f0cb;
+                        height: 53vh;
+                    padding: 0;
+                  "
+                >
+                  {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
+                  <div
+                    class="clip-event-training"
+                    style="
+                      background: url(../static/svg/EXTCVector.svg) no-repeat;
+                      background-size: contain;
+                      background-position: center bottom;
+                      background-color: #84b4c8;
+                          height: 53vh;
+                      padding: 0;
+                    "
+                  >
+                    {% endif %}
+                    <!-- {% if depart == "COMPUTER ENGINEERING" %} {%
+                    elif depart == "INFORMATION TECHNOLOGY" %} {% elif depart ==
+                    "CIVIL ENGINEERING" %} {% elif depart == "ELECTRONICS" %} {%
+                    elif depart == "ELECTRONICS & TELECOMMUNICATION" %} {% endif
+                    %} -->
+                    <!-- <div
+              class="clip-event-training"
+              style="
+                background: url(static/svg/CSVector.svg) no-repeat;
+                background-size: contain;
+                background-position: center top;
+                background-color: #9ea3f5;
+                    height: 53vh;
+                padding: 0;
+              "
+            > -->
+                    <div
+                      class="Container-sc-1e7uphc-0 bKAWec jghleH"
+                      style="width: 100%; padding: 8rem 0px;"
+                    >{% if depart == "COMPUTER ENGINEERING" %}
+                    <a href="/profile"> <img
+                       src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
+                       alt=""
+                       class="initial2"
+                     /></a>{% elif depart == "INFORMATION TECHNOLOGY" %}
+                    <a href="/profile"> <img
+                       src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
+                       alt=""
+                       class="initial2"
+                     /></a>{% elif depart == "CIVIL ENGINEERING" %}
+                    <a href="/profile"> <img
+                       src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
+                       alt=""
+                       class="initial2"
+                     /></a>
+                     {% elif depart == "ELECTRONICS" %}
+                    <a href="/profile"> <img
+                       src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
+                       alt=""
+                       class="initial2"
+                     /></a>
+                     {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
+                    <a href="/profile"> <img
+                       src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
+                       alt=""
+                       class="initial2"
+                     /></a>{% endif %}
+                      <div class="head-training">
+                        <div class="training-inner">
+                          <div class="item hero-training">
+                            <div class="training-row" style="background: url(../static/svg/vec.svg);    background-size: cover;
+                          ">
+                              <div class="block-content no-padding-topbottom">
+                                <div class="col-xs-12 hero-wrapper">
+                                  <div class="module">
+                                    <div class="module-title-wraper">
+                                      {% if depart == "COMPUTER ENGINEERING" %}
+                                      <div
+                                        style="
+                                          color: #191970;
+                                          font-size: 2.4rem;
+                                          font-weight: 500;
+                                        "
+                                      >
+                                        Welcome CSnation!
+                                      </div>
+                                      {% elif depart == "INFORMATION TECHNOLOGY"
+                                      %}
+                                      <div
+                                        style="
+                                        color: #191970;
+                                          font-size: 2.5rem;
+                                          font-weight: 500;
+                                        "
+                                      >
+                                        Welcome IT Tribe!
+                                      </div>
+                                      {% elif depart == "CIVIL ENGINEERING" %}
+                                      <div
+                                        style="
+                                          color: #191970;
+                                          font-size: 2.5rem;
+                                          font-weight: 500;
+                                        "
+                                      >
+                                        Welcome Civilian!
+                                      </div>
+                                      {% elif depart == "ELECTRONICS" %}
+                                      <div
+                                        style="
+                                        color: #191970;
+                                          font-size: 2.4rem;
+                                          font-weight: 500;
+                                        "
+                                      >
+                                        Welcome Etrx Sept!
+                                      </div>
+                                      {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
+                                      <div
+                                        style="
+                                        color: #191970;
+                                          font-size: 2.3rem;
+                                          font-weight: 500  ;
+                                        "
+                                      >
+                                        Welcome Extc Crew!
+                                      </div>
+                                      {% endif %}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="Container-sc-1e7uphc-0 bKAWec bKAWec1 jghleH"
+                    style="width: 100%; height: 47vh;"
+                  >
+                    <div
+                      class="event-wrapper"
+                      style="
+                        width: 100%;
+                        height: 47vh;
+                        background: #f4f4f4;
+                        margin-top: 0px;
+                        padding: 0;
+                        border-radius: 1rem 1rem 0 0;
+                      "
+                    >
+                      <ul
+                        class="nav nav-pills nav-fill"
+                        style="
+                          border-bottom: #979797 solid 0.1px;
+                          border-radius: 1rem 1rem 0 0;
+                          background: white;
+                        "
+                      >
+                        <li class="nav-item">
+                          <a
+                            data-toggle="pill"
+                            href="#updates"
+                            class="anchor"
+                            style=""
+                            >Updates</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            data-toggle="pill"
+                            href="#newsletter"
+                            style=""
+                            class="anchor active show"
+                            >Newsletter</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            data-toggle="pill"
+                            href="#rd"
+                            class="anchor"
+                            style=""
+                            >R&D</a
+                          >
+                        </li>
+                      </ul>
+
+                      <div
+                        class="tab-content"
+                        style="
+                          padding: 0 3rem;
+                          background: #f4f4f4;
+                          text-align: center;
+                        "
+                      >
+                        <div id="updates" class="tab-pane fade"  style="margin-top: 25px;">
+                          <div class="issue">
+                            <h3>{{depart}}</h3>
+                            <p>
+                              {{depart}}
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                        id="newsletter"
+                        class="tab-pane fade in active show"
+                        style="margin-top: 25px;"
+                      >
+                        {% if depart == "COMPUTER ENGINEERING" %} 
+                        {% for query in querys|reverse %} {% if query.val().domain == "COMPUTER" %}
+                        <div class="issue">
+                          <a
+                            href="{{query.val().link}}"
+                            target="_blank"
+                            style="all: unset; cursor: pointer;"
+                            download=""
+                          >
+                            <h3 class="letter-title">
+                              {{query.val().title}}
+                            </h3>
+                            <p class="letter-issue">
+                              {{query.val().issue}}
+                            </p>
+                          </a>
+                        </div>
+                        {%endif%} {% endfor %}
+                        {% elif depart == "INFORMATION TECHNOLOGY" %} 
+                        {% for query in querys|reverse %} {% if query.val().domain == "IT" %}
+                        <div class="issue">
+                          <a
+                            href="{{query.val().link}}"
+                            target="_blank"
+                            style="all: unset; cursor: pointer;"
+                            download=""
+                          >
+                            <h3 class="letter-title">
+                              {{query.val().title}}
+                            </h3>
+                            <p class="letter-issue">
+                              {{query.val().issue}}
+                            </p>
+                          </a>
+                        </div>
+                        {%endif%} {% endfor %} 
+                        {% elif depart == "CIVIL ENGINEERING" %} 
+                        {% for query in querys|reverse %} {% if query.val().domain == "CIVIL"%}
+                        <div class="issue">
+                          <a
+                            href="{{query.val().link}}"
+                            target="_blank"
+                            style="all: unset; cursor: pointer;"
+                            download=""
+                          >
+                            <h3 class="letter-title">
+                              {{query.val().title}}
+                            </h3>
+                            <p class="letter-issue">
+                              {{query.val().issue}}
+                            </p>
+                          </a>
+                        </div>
+                        {%endif%} {% endfor %} 
+                        {% elif depart == "ELECTRONICS" %}
+                         {% for query in querys|reverse %} {% if query.val().domain == "ETRX" %}
+                        <div class="issue">
+                          <a
+                            href="{{query.val().link}}"
+                            target="_blank"
+                            style="all: unset; cursor: pointer;"
+                            download=""
+                          >
+                            <h3 class="letter-title">
+                              {{query.val().title}}
+                            </h3>
+                            <p class="letter-issue">
+                              {{query.val().issue}}
+                            </p>
+                          </a>
+                        </div>
+                        {%endif%} {% endfor %}
+                         {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %} 
+                         {% for query in querys|reverse %} {% if query.val().domain == "EXTC" %}
+                        <div class="issue">
+                          <a
+                            href="{{query.val().link}}"
+                            target="_blank"
+                            style="all: unset; cursor: pointer;"
+                            download=""
+                          >
+                            <h3 class="letter-title">
+                              {{query.val().title}}
+                            </h3>
+                            <p class="letter-issue">
+                              {{query.val().issue}}
+                            </p>
+                          </a>
+                        </div>
+                        {%endif%} {% endfor %}{% endif %}
+
+                        <!-- <div class="issue">
+                          <h3 class="letter-title">COFFEE & CODE;</h3>
+                          <p class="letter-issue">
+                            Issue 21: April 2020 Edition
+                          </p>
+                        </div> -->
+                        <span>View All</span>
+                      </div>
+                        <div id="rd" class="tab-pane fade"  style="margin-top: 25px;">
+                          <div class="issue">
+                            <h3>R&D</h3>
+                            <p>
+                              {{depart}}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

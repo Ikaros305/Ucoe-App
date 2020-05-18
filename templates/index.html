@@ -1,0 +1,1220 @@
+{% extends "layout.html" %} {% block content %}
+<div class="site-wrap" style="z-index: 20005;">
+  <div class="site-mobile-menu" style="z-index: 20006;">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <header class="site-navbar" role="banner" style="top: 0;">
+    <div class="container" style="max-width: 1340px;">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-8 d-none d-xl-block">
+          <nav
+            class="site-navigation position-relative text-right"
+            role="navigation"
+          >
+            <!-- <ul class="side" style="margin: 20px 0;">
+            <img class="nav-svg" src="static\svg\start.svg" alt="" />
+            <li class="side-li">
+              <a href="#webinar" class="active" style="">Webinars</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#events" style="">Upcoming Events</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#news" style="">News Feed</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#clan" style="">UCOE Clan</a>
+            </li>
+            <img class="nav-svg" src="static\svg\end.svg" alt="" />
+          </ul> -->
+            <ul class="site-menu side js-clone-nav mr-auto d-none d-lg-block">
+              <img class="nav-svg" src="..\static\svg\start1.svg" alt="" />
+              <li>
+                <a href="#first"><span class="n-link">Home</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="#webinar"><span class="n-link">Webinar</span></a>
+
+                <!-- <ul class="dropdown arrow-top">
+                  <li><a href="comps">Computer Engineering</a></li>
+                  <li><a href="#">Information Technology</a></li>
+                  <li><a href="#">Civil Engineering</a></li>
+                  <li><a href="#">Electronics</a></li>
+                  <li><a href="#">Electronics & Telecommunication</a></li>
+                </ul> -->
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="#ucoeclan"><span class="n-link">Ucoe Clan</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+
+              <!-- <li>
+                <a href="/newsf"><span class="n-link">News Feed</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" /> -->
+              <!-- <li>
+                <a href="/courses"><span class="n-link">Courses</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="#"  
+                  ><span class="n-link">Virtual Tour</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="http://unibotbeta.000webhostapp.com"  target="_blank"
+                  ><span class="n-link">ChatBot</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/profile"><span class="n-link">Profile</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" /> -->
+              {% if auth.current_user == None %}
+              <li>
+                <a href="/login"><span class="n-link">Login / Signup</span></a>
+              </li>
+              <!-- <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/login"><span class="n-link">Signup</span></a>
+              </li> -->
+              {% else %}
+              <li>
+                <form method="POST" style="margin-bottom: 0;">
+                  <a href="#" style="text-decoration: none;">
+                    <button
+                      type="submit"
+                      name="submit"
+                      value="logout"
+                      style="all: unset;"
+                    >
+                      <span class="n-link">LogOut</span>
+                    </button></a
+                  >
+                </form>
+              </li>
+              {% endif %}
+              <img class="nav-svg" src="..\static\svg\end1.svg" alt="" />
+            </ul>
+          </nav>
+        </div>
+
+        <div
+          class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+          style="position: relative; top: 10px; margin-left: 22px;"
+        >
+          <a href="#" class="site-menu-toggle js-menu-toggle text-black"
+            ><span class="icon-menu h3" style="font-size: 45px;"></span
+          ></a>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<div id="wrapper">
+  <div id="main">
+    <div class="inner">
+      <div class="swiper-container dis">
+        <!-- <ol class="carousel-indicators">
+          <li data-target="#carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel" data-slide-to="1"></li>
+          <li data-target="#carousel" data-slide-to="2"></li>
+        </ol> -->
+        <div class="swiper-wrapper" style="margin-bottom: 0px;">
+          <div id="first" class="swiper-slide" style="width: 100vw;">
+            <div
+              id="container07"
+              class="style3 container default full screen"
+              style="overflow-y: scroll;"
+            >
+              <img src="../static/svg/logo2.svg" alt="svg" class="logo12" />
+              <div id="swipeup" class="inner" style="height: 50vh;">
+                <!-- <h1 id="text17" class="style6">Untitled</h1>
+          <h1 id="text18" class="style3">Lorem ipsum dolor</h1>
+          <p id="text21" class="style4">
+            Aptent taciti sociosqu ad litora torquent per conubia nostra, per
+            inceptos himenaeos. Etiam tristique amet fermentum.
+          </p> -->
+                <img
+                  class="trigger"
+                  src="../static/svg/swipeup.svg"
+                  alt="swipeup"
+                  style="width: 10%; position: absolute; bottom: 20px;"
+                  onclick="playVideo()"
+                />
+              </div>
+              <img
+                src="../static/svg/Clg.svg"
+                alt="svg1"
+                class="logo1"
+                style="
+                  width: 100%;
+                  position: absolute;
+                  bottom: 0;
+
+                  /* height: 50vh; */
+                  /* display: none; */
+                "
+              />
+              <div id="slide" class="slider close" onclick="stopVideo()">
+                <div class="fullscreen-video-wrap">
+                  <video
+                    id="myVideo"
+                    src="../static/Uni.mp4"
+                    controls
+                    autoplay
+                    muted
+                  ></video>
+                  <img
+                    src="../static/svg/swipedown.svg"
+                    alt="swipedown"
+                    style="
+                      width: 10%;
+                      position: absolute;
+                      bottom: 20px;
+                      top: 10vh;
+                      left: 45vw;
+                    "
+                    onclick="stopVideo()"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="webinar" class="swiper-slide" style="width: 100vw;">
+            <div
+              id="container04"
+              data-scroll-id="one"
+              data-scroll-behavior="center"
+              class="style2 container columns"
+              style="padding: 0; overflow-y: scroll;"
+            >
+              <img
+                src="static\svg\line.svg"
+                alt="1"
+                style="/* height: 98%; */ position: relative; top: 11px;"
+              />
+              <div
+                class="inner"
+                style="padding-top: 2rem; /* padding-bottom: 4rem; */"
+              >
+                <div>
+                  <h1 id="text10" class="style1" style="">
+                    Attend Webinars
+                  </h1>
+                  <div
+                    id="image04"
+                    class="style1 image full"
+                    data-position="center"
+                    style=""
+                  >
+                    <a
+                      href="#"
+                      class="deferred"
+                      style="
+                        background-image: none;
+                        background-size: 100% 100%;
+                        background-position: left top;
+                        background-repeat: no-repeat;
+                      "
+                      ><img
+                        src="../static/img/second.png"
+                        data-src="done"
+                        alt="1"
+                        style="/* height: 98%; */"
+                    /></a>
+                  </div>
+                </div>
+                <div class="full">
+                  <h2 id="text11" class="style1" style="font-size: 1.25em;">
+                    Learn from the best
+                  </h2>
+                  <p id="text12" class="style2">
+                    A webinar is an online seminar that turns a presentation
+                    into a real-time conversation from anywhere in the world.
+                  </p>
+                </div>
+              </div>
+              <img
+                src="static\svg\line2.svg"
+                alt="1"
+                style="/* height: 98%; */ position: relative; bottom: 33px;"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide" style="width: 100vw;">
+            <div
+              id="container04"
+              data-scroll-id="one"
+              data-scroll-behavior="center"
+              class="style2 container columns"
+              style="
+                padding: 0;
+                background-image: url(static/svg/vector1.svg);
+                background-size: auto;
+                background-position: top center;
+                background-repeat: no-repeat;
+                overflow-y: scroll;
+              "
+            >
+              <!-- <img
+                src="static\svg\vector.svg"
+                alt="1"
+                style="position: absolute; top: 0;"
+              /> -->
+              <div
+                class="inner"
+                style="
+                  padding-top: 2rem;
+                  min-height: 43rem;
+                  padding-bottom: 0;
+                  display: flow-root;
+                "
+              >
+                <div style="width: 100%; margin: 0; padding: 0 0 0 75px;">
+                  <h1 id="text13" class="style1" style="">
+                    Past Webinars:
+                  </h1>
+                  <a href="login" style="text-decoration: none;"
+                    ><h1 id="text14" class="style1" style="">
+                      Browse all >
+                    </h1></a
+                  >
+                  <!-- <div class="partners-cont"> -->
+                  <div
+                    class="columns is-multiline"
+                    style="margin: 0; width: 100%; padding-top: 5px;"
+                  >
+                    {% for query in querys|slice(2) %}
+                    <div
+                      class="column"
+                      style="
+                        /* margin-top: 50px; */
+                        width: 90%;
+                        margin: auto;
+                        padding-bottom: 5px;
+                      "
+                    >
+                      <div
+                        class="box interview-grid-item"
+                        style="border-radius: 5%; margin-bottom: 0;"
+                      >
+                        <div
+                          class="interview-grid-item__avatar"
+                          style="margin-bottom: 0;"
+                        >
+                          <div
+                            class="partners--logo sb-avatar sb-avatar--src"
+                            style="
+                              display: inline-block;
+                              vertical-align: middle;
+                              border-radius: 100%;
+                              font-family: Helvetica, Arial, sans-serif;
+                            "
+                          >
+                            <iframe
+                              class="vid"
+                              style="width: 100%; /*height: 160px;*/"
+                              width="560"
+                              height="315"
+                              src="{{query[0].val().link}}?controls=0&amp;end=120"
+                              frameborder="0"
+                              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                              allowfullscreen
+                            ></iframe>
+                          </div>
+                        </div>
+                        <div class="query" style="padding: 10px;">
+                          <p
+                            class="q_professor title is-8"
+                            style="font-size: 12px;"
+                          >
+                            Professor : {{query[0].val().professor}}
+                          </p>
+
+                          <p class="q_date title is-8" style="font-size: 12px;">
+                            Date : {{query[0].val().date}}
+                          </p>
+
+                          <p
+                            class="q_domain title is-8"
+                            style="font-size: 12px;"
+                          >
+                            Domain : {{query[0].val().domain}}
+                          </p>
+
+                          <a
+                            href="login"
+                            style="
+                              text-decoration: none;
+                              color: black;
+                              cursor: pointer;
+                            "
+                          >
+                            <h5
+                              style="
+                                text-align: center;
+                                font-size: 12px;
+                                font-weight: 400;
+                              "
+                            >
+                              view more
+                            </h5>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <!-- </div>  -->
+              </div>
+            </div>
+          </div>
+          <div id="ucoeclan" class="swiper-slide" style="width: 100vw;">
+            <div
+              id="container04"
+              data-scroll-id="one"
+              data-scroll-behavior="center"
+              class="style2 container columns"
+              style="padding: 0; overflow-y: scroll;"
+            >
+              <div
+                class="inner"
+                style="
+                  padding-top: 2rem;
+                  min-height: 43rem;
+                  padding-bottom: 0;
+                  display: flow-root;
+                "
+              >
+                <div style="width: 100%; margin: 0; padding: 0 0 0 75px;">
+                  <h1 id="text13" class="style1" style="padding-bottom: 30px;">
+                    Welcome UCoE Clan !
+                  </h1>
+
+                  <!-- <div class="partners-cont"> -->
+                  <div
+                    class="columns is-multiline"
+                    style="margin: 0; width: 100%; padding-top: 5px;"
+                  >
+                    <div
+                      class="column"
+                      style="
+                        /* margin-top: 50px; */
+                        width: 45%;
+                        margin: auto;
+                        padding-bottom: 5px;
+                        margin-bottom: 20px;
+                      "
+                    >
+                      <img
+                        src="static\svg\CS.svg"
+                        alt="1"
+                        style="width: 100%; border-radius: 20px;"
+                      />
+                    </div>
+                    <div
+                      class="column"
+                      style="
+                        /* margin-top: 50px; */
+                        width: 45%;
+                        margin: auto;
+                        padding-bottom: 5px;
+                        margin-bottom: 20px;
+                      "
+                    >
+                      <img
+                        src="static\svg\IT.svg"
+                        alt="1"
+                        style="width: 100%; border-radius: 20px;"
+                      />
+                    </div>
+                    <div
+                      class="column"
+                      style="
+                        /* margin-top: 50px; */
+                        width: 45%;
+                        margin: auto;
+                        padding-bottom: 5px;
+                        margin-bottom: 20px;
+                      "
+                    >
+                      <img
+                        src="static\svg\Civil.svg"
+                        alt="1"
+                        style="width: 100%; border-radius: 20px;"
+                      />
+                    </div>
+                    <div
+                      class="column"
+                      style="
+                        /* margin-top: 50px; */
+                        width: 45%;
+                        margin: auto;
+                        padding-bottom: 5px;
+                        margin-bottom: 20px;
+                      "
+                    >
+                      <img
+                        src="static\svg\Etrx.svg"
+                        alt="1"
+                        style="width: 100%; border-radius: 20px;"
+                      />
+                    </div>
+                    <div
+                      class="column"
+                      style="
+                        /* margin-top: 50px; */
+                        width: 45%;
+                        margin: auto;
+                        padding-bottom: 5px;
+                        margin-bottom: 20px;
+                      "
+                    >
+                      <img
+                        src="static\svg\Extc.svg"
+                        alt="1"
+                        style="width: 100%; border-radius: 20px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- </div>  -->
+              </div>
+            </div>
+          </div>
+          <div id="events" class="swiper-slide" style="width: 100vw;">
+            <div
+              id="container04"
+              data-scroll-id="one"
+              data-scroll-behavior="center"
+              class="style2 container columns"
+              style="padding: 0; overflow-y: scroll;"
+            >
+              <img
+                src="static\svg\circle1.svg"
+                alt="1"
+                style="position: absolute; top: -51px; left: -31px;"
+              />
+              <div
+                class="inner"
+                style="
+                  padding-top: 2rem;
+
+                  padding-bottom: 0;
+                  z-index: 1;
+                  display: flow-root;
+                "
+              >
+                <div
+                  style="
+                    width: 100%;
+                    height: 80vh;
+                    margin: 0;
+                    padding: 0 0 0 75px;
+                  "
+                >
+                  <h1 id="text13" class="style1" style="padding-bottom: 30px;">
+                    Upcoming Events
+                  </h1>
+
+                  <!-- <div class="partners-cont"> -->
+                  <div
+                    class="columns is-multiline"
+                    style="
+                      margin: 0;
+                      width: 100%;
+
+                      padding-top: 5px;
+                    "
+                  >
+                    <div
+                      class="column"
+                      style="
+                        /* margin-top: 50px; */
+                        width: 100%;
+                        height: 100%;
+                        margin-right: 0;
+                        display: flex;
+                        margin-left: auto;
+                        padding: 0;
+
+                        padding-bottom: 5px;
+                        margin-bottom: 40px;
+                      "
+                    >
+                      <h3 style="font-size: 0.75rem; margin: auto;">
+                        Mark the date: 22nd Jan 2020
+                      </h3>
+                      <div class="cont1">
+                        <div
+                          style="
+                            display: flex;
+                            /* width: 100%;*/
+                            margin-right: 20px;
+                          "
+                        >
+                          <img src="static\svg\pop1.svg" alt="1" style="" />
+                          <img
+                            src="static\img\log.png"
+                            alt="1"
+                            style="width: 100%; height: 100%;"
+                          />
+                        </div>
+                        <div class="overlay2">
+                          <div class="text">Aurora 2020</div>
+                          <div class="text1">
+                            A perfect blend of cultural
+                            <br />
+                            and sports
+                          </div>
+                          <a class="text2" href="login">Learn more</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="column"
+                      style="
+                        /* margin-top: 50px; */
+                        width: 100%;
+                        height: 100%;
+                        margin-right: auto;
+                        margin-left: 0;
+                        display: flex;
+                        padding: 0;
+                        padding-bottom: 5px;
+                        margin-bottom: 40px;
+                      "
+                    >
+                      <div class="cont">
+                        <div class="overlay21">
+                          <div class="text">Aurora 2020</div>
+                          <div class="text1">
+                            A perfect blend of cultural
+                            <br />
+                            and sports
+                          </div>
+                          <a class="text2" href="login">Learn more</a>
+                        </div>
+                        <div style="display: flex; /* width: 100%;*/">
+                          <img
+                            src="static\img\log.png"
+                            alt="1"
+                            style="width: 100%; height: 100%;"
+                          />
+                          <img src="static\svg\pop2.svg" alt="1" style="" />
+                        </div>
+                      </div>
+                      <h3
+                        style="
+                          font-size: 0.75rem;
+                          margin: auto;
+                          margin-top: 30px;
+                        "
+                      >
+                        Mark the date: 22nd Jan 2020
+                      </h3>
+                    </div>
+                    <div
+                      class="column"
+                      style="
+                        /* margin-top: 50px; */
+                        width: 100%;
+                        height: 100%;
+                        margin-right: 0;
+                        display: flex;
+                        margin-left: auto;
+                        padding: 0;
+                        padding-bottom: 5px;
+                        margin-bottom: 40px;
+                      "
+                    >
+                      <h3 style="font-size: 0.75rem; margin: auto;">
+                        Mark the date: 22nd Jan 2020
+                      </h3>
+                      <div class="cont1">
+                        <div
+                          style="
+                            display: flex;
+                            /* width: 100%;*/
+                            margin-right: 20px;
+                          "
+                        >
+                          <img src="static\svg\pop1.svg" alt="1" style="" />
+                          <img
+                            src="static\img\log.png"
+                            alt="1"
+                            style="width: 100%; height: 100%;"
+                          />
+                        </div>
+                        <div class="overlay2">
+                          <div class="text">Aurora 2020</div>
+                          <div class="text1">
+                            A perfect blend of cultural
+                            <br />
+                            and sports
+                          </div>
+                          <a class="text2" href="login">Learn more</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="text-align: end;">
+                    <a href="login"
+                      ><button
+                        style="
+                          border-radius: 20px;
+                          border: 1px solid #647dee;
+                          background-color: #647dee;
+                        "
+                      >
+                        Sign In
+                      </button></a
+                    >
+                  </div>
+                </div>
+                <!-- </div>  -->
+              </div>
+              <img
+                src="static\svg\circle3.svg"
+                alt="1"
+                style="position: absolute; right: -20px;"
+              />
+            </div>
+            <img
+              src="static\svg\circle2.svg"
+              alt="1"
+              style="position: absolute; bottom: 14px; left: -50px;"
+            />
+          </div>
+        </div>
+
+        <div class="swiper-pagination dis"></div>
+
+        <div class="swiper-button-next dis"></div>
+        <!-- <div class="swiper-button-prev"></div> -->
+      </div>
+      <!-- Banner -->
+      <section id="home-section" class="active">
+        <div
+          id="container07"
+          class="style3 container default full screen cod"
+          style=""
+        >
+          <img src="static\svg\logo2.svg" alt="svg" class="logo12" />
+          <div class="inner">
+            <!-- <h1 id="text17" class="style6">Untitled</h1>
+            <h1 id="text18" class="style3">Lorem ipsum dolor</h1>
+            <p id="text21" class="style4">
+              Aptent taciti sociosqu ad litora torquent per conubia nostra, per
+              inceptos himenaeos. Etiam tristique amet fermentum.
+            </p> -->
+          </div>
+          <img
+            src="/static/svg/Clg.svg"
+            alt="svg"
+            class="logo1"
+            style="
+              width: 100%;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              /* height: 50vh; */
+              /* display: none; */
+            "
+          />
+        </div>
+        <div
+          id="container04"
+          data-scroll-id="one"
+          data-scroll-behavior="center"
+          class="style2 container columns cod"
+          style="padding: 0;"
+        >
+          <a id="webinar"></a>
+          <div
+            class="inner"
+            style="
+              padding-top: 2rem;
+              min-height: 33rem; /* padding-bottom: 4rem; */
+            "
+          >
+            <div>
+              <div
+                style="
+                  position: absolute;
+                  height: 100%;
+                  left: 0;
+                  width: 78px;
+                  background-color: midnightblue;
+                  top: 0;
+                "
+              >
+                <ul class="side" style="margin: 20px 0;">
+                  <img class="nav-svg" src="static\svg\start.svg" alt="" />
+                  <li class="side-li">
+                    <a href="#webinar" class="active" style="">Webinars</a>
+                  </li>
+                  <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+                  <li class="side-li">
+                    <a href="#events" style="">Upcoming Events</a>
+                  </li>
+                  <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+                  <li class="side-li">
+                    <a href="#news" style="">News Feed</a>
+                  </li>
+                  <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+                  <li class="side-li">
+                    <a href="#clan" style="">UCOE Clan</a>
+                  </li>
+                  <img class="nav-svg" src="static\svg\end.svg" alt="" />
+                </ul>
+                <!-- <img
+                  src="static\svg\web1.svg"
+                  alt=""
+                  class="scr"
+                  style="
+                    /* all: unset; */ /* display: none; */
+                    position: absolute;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                  "
+                /> -->
+              </div>
+              <h1
+                id="text10"
+                class="style1"
+                style="margin-top: -42px; margin-bottom: 48px;"
+              >
+                Attend Webinars
+              </h1>
+              <h2
+                id="text11"
+                class="style1"
+                style="font-size: 1.25em; margin-bottom: 49px;"
+              >
+                Learn from the best
+              </h2>
+              <p id="text12" class="style2">
+                A webinar is an online seminar that turns a presentation into a
+                real-time conversation from anywhere in the world.
+              </p>
+            </div>
+            <div class="full">
+              <div
+                id="image04"
+                class="style1 image full"
+                data-position="center"
+                style=""
+              >
+                <a
+                  href="#one"
+                  class="deferred"
+                  style="
+                    background-image: none;
+                    background-size: 100% 100%;
+                    margin-top: 0;
+                    background-position: left top;
+                    background-repeat: no-repeat;
+                  "
+                  ><img
+                    src="/static/img/second.png"
+                    data-src="done"
+                    alt=""
+                    style="
+                      opacity: 1;
+                      transition: opacity 0.375s ease-in-out 0s;
+                      /* height: 98%; */
+                    "
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="container04"
+          name="webinar"
+          data-scroll-id="one"
+          data-scroll-behavior="center"
+          class="style2 container columns cod"
+          style="padding: 0;"
+        >
+          <div
+            class="inner"
+            style="
+              padding-top: 1rem;
+              min-height: 33rem;
+              padding-bottom: 0;
+              display: flow-root;
+            "
+          >
+            <div style="width: 100%; margin: 0; padding: 0 0 0 75px;">
+              <div
+                style="
+                  position: absolute;
+                  height: 100%;
+                  left: 0;
+                  width: 78px;
+                  background-color: midnightblue;
+                  top: 0;
+                "
+              >
+                <ul class="side" style="margin: 20px 0;">
+                  <img class="nav-svg" src="static\svg\start.svg" alt="" />
+                  <li class="side-li">
+                    <a href="#webinar" class="active" style="">Webinars</a>
+                  </li>
+                  <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+                  <li class="side-li">
+                    <a href="#events" style="">Upcoming Events</a>
+                  </li>
+                  <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+                  <li class="side-li">
+                    <a href="#news" style="">News Feed</a>
+                  </li>
+                  <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+                  <li class="side-li">
+                    <a href="#clan" style="">UCOE Clan</a>
+                  </li>
+                  <img class="nav-svg" src="static\svg\end.svg" alt="" />
+                </ul>
+                <!-- <img
+                  src="static\svg\web1.svg"
+                  alt=""
+                  class="scr"
+                  style="
+                    /* all: unset; */ /* display: none; */
+                    position: absolute;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                  "
+                /> -->
+              </div>
+              <h1 id="text13" class="style1" style="">
+                Past <br />
+                Webinars:
+              </h1>
+              <h1 id="text14" class="style1" style="">
+                Browse all >
+              </h1>
+              <!-- <div class="partners-cont"> -->
+              <div class="columns is-multiline" style="margin: 0; width: 100%;">
+                {% for query in querys|slice(2) %}
+                <div class="column" style="/* margin-top: 50px; */ width: 50%;">
+                  <div
+                    class="box interview-grid-item"
+                    style="border-radius: 5%; margin-bottom: 0;"
+                  >
+                    <div
+                      class="interview-grid-item__avatar"
+                      style="margin-bottom: 0;"
+                    >
+                      <div
+                        class="partners--logo sb-avatar sb-avatar--src"
+                        style="
+                          display: inline-block;
+                          vertical-align: middle;
+                          border-radius: 100%;
+                          font-family: Helvetica, Arial, sans-serif;
+                        "
+                      >
+                        <iframe
+                          class="vid"
+                          style="width: 100%; height: 200px;"
+                          width="560"
+                          height="315"
+                          src="{{query[0].val().link}}?controls=0&amp;end=120"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                    </div>
+                    <div class="query" style="padding: 10px;">
+                      <p class="q_professor title is-8">
+                        Professor : {{query[0].val().professor}}
+                      </p>
+
+                      <p class="q_date title is-8">
+                        Date : {{query[0].val().date}}
+                      </p>
+
+                      <p class="q_domain title is-8">
+                        Domain : {{query[0].val().domain}}
+                      </p>
+
+                      <a
+                        href="login"
+                        style="
+                          text-decoration: none;
+                          color: black;
+                          cursor: pointer;
+                        "
+                      >
+                        <h5 style="text-align: center;">view more</h5>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <!-- </div>  -->
+          </div>
+        </div>
+
+        <!-- <div class="container21 cod" id="container21">
+          <div class="form-container sign-up-container">
+            <div
+              style="
+                background-color: #f9e5e5;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 30px 50px;
+                height: 100%;
+                text-align: center;
+              "
+            >
+              <h1>Sign In</h1>
+              <form action="#">
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+   
+                <button
+                  style="
+                    background-color: #d47c7c;
+                    border: 1px solid #d47c7c;
+                    margin-top: 30px;
+                  "
+                >
+                  Sign In
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="form-container sign-in-container">
+            <div
+              style="
+                background-color: #f9e5e5;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 30px 50px;
+                height: 100%;
+                text-align: center;
+              "
+            >
+              <h1>Sign Up</h1>
+              <form action="#">
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <input type="text" placeholder="Contact" />
+                <input type="password" placeholder="Password" />
+                <button
+                  style="
+                    background-color: #d47c7c;
+                    border: 1px solid #d47c7c;
+                    margin-top: 30px;
+                  "
+                >
+                  Sign Up
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="overlay-container">
+            <div class="overlay">
+              <div class="overlay-panel overlay-left">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+              </div>
+              <div class="overlay-panel overlay-right">
+                <h1>Welcome Back!</h1>
+                <p>
+                  To keep connected with us please login with your personal info
+                </p>
+                <button class="ghost" id="signIn">Sign In</button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div
+        id="container04"
+        data-scroll-id="one"
+        data-scroll-behavior="center"
+        class="style2 container columns"
+        style="padding: 0;"
+      >
+        <div
+          class="inner"
+          style="padding-top: 2rem; /* padding-bottom: 4rem; */"
+        >
+          <div>
+            <img
+              src="static\svg\web1.svg"
+              alt=""
+              class="scr"
+              style="
+                /* all: unset; */ /* display: none; */
+                position: absolute;
+                height: 100%;
+                left: 0;
+                top: 0;
+              "
+            />
+            <h1 id="text10" class="style1" style="">
+              Attend Webinars
+            </h1>
+            <div
+              id="image04"
+              class="style1 image full"
+              data-position="center"
+              style=""
+            >
+              <a
+                href="#one"
+                class="deferred"
+                style="
+                  background-image: none;
+                  background-size: 100% 100%;
+                  background-position: left top;
+                  background-repeat: no-repeat;
+                "
+                ><img
+                  src="static\img\web.png"
+                  data-src="done"
+                  alt=""
+                  style="
+                    opacity: 1;
+                    transition: opacity 0.375s ease-in-out 0s;
+                    /* height: 98%; */
+                  "
+              /></a>
+            </div>
+          </div>
+          <div class="full">
+            <h2 id="text11" class="style1" style="font-size: 1.25em;">
+              Learn from the best
+            </h2>
+            <p id="text12" class="style2">
+              A webinar is an online seminar that turns a presentation into a
+              real-time conversation from anywhere in the world.
+            </p>
+          </div>
+        </div>
+      </div> -->
+
+        <!-- <div
+          id="container03"
+          data-scroll-id="two"
+          data-scroll-behavior="default"
+          class="style2 container default"
+        >
+          <div class="inner">
+            <h2 id="text01" class="style1">Sed dapibus litora</h2>
+            <p id="text02" class="style2">
+              Donec eget ex magna. Interdum et malesuada fames ac ante ipsum
+              primis in faucibus. Pellentesque venenatis dolor imperdiet dolor
+              mattis sagittis. Praesent rutrum sem diam, vitae egestas enim
+              auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit
+              fergiat. Pellentesque in mi eu massa lacinia malesuada.
+            </p>
+            <div id="image01" class="style2 image full">
+              <a
+                href="#one"
+                class="deferred"
+                style="
+                  background-image: none;
+                  background-size: 100% 100%;
+                  background-position: left top;
+                  background-repeat: no-repeat;
+                "
+                ><img
+                  src="assets/images/image01.jpg?v49148499571751"
+                  data-src="done"
+                  alt=""
+                  style="
+                    opacity: 1;
+                    transition: opacity 0.375s ease-in-out 0s;
+                  "
+              /></a>
+            </div>
+            <p id="text12" class="style2">
+              Lorem ipsum dolor sit amet consectetur magna adipiscing elit. Duis
+              dapibus rutrum facilisis. Class aptent taciti ad litora torquent.
+              Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad
+              litora adipiscing.
+            </p>
+          </div>
+        </div>
+        <div
+          id="container01"
+          data-scroll-id="three"
+          data-scroll-behavior="center"
+          class="style2 container columns"
+        >
+          <div class="inner">
+            <div class="full">
+              <div
+                id="image06"
+                class="style1 image full"
+                data-position="center"
+              >
+                <a
+                  href="#one"
+                  class="deferred"
+                  style="
+                    background-image: none;
+                    background-size: 100% 100%;
+                    background-position: left top;
+                    background-repeat: no-repeat;
+                  "
+                  ><img
+                    src="assets/images/image06.jpg?v49148499571751"
+                    data-src="done"
+                    alt=""
+                    style="
+                      opacity: 1;
+                      transition: opacity 0.375s ease-in-out 0s;
+                    "
+                /></a>
+              </div>
+            </div>
+            <div>
+              <h2 id="text15" class="style1">Sed adipiscing</h2>
+              <p id="text16" class="style2">
+                Lorem ipsum dolor sit amet consectetur magna adipiscing elit.
+                Duis dapibus rutrum facilisis. Class aptent taciti litora
+                torquent.
+              </p>
+            </div>
+          </div>
+        </div> -->
+      </section>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,230 @@
+.clip-event-training {
+    position: relative;
+    background: linear-gradient(-185deg, rgba(77, 190, 122, 0.6), rgba(26, 26, 26, 0.8)) 0% 0% / cover, url(../../images/nature-bg.jpg) no-repeat;
+    padding: 2rem 2rem 10rem;
+}
+
+/* .clip-event-training::after {
+    bottom: -2px;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    background: url(../../images/mask.svg) left bottom / 101% no-repeat transparent;
+} */
+
+.associates-events {
+    margin: 0.5rem;
+    width: 10rem;
+}
+
+.module-title-wraper {
+    margin: .62em 0 .93em;
+}
+
+.ebtn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ebutton1 {
+    border-radius: 3px;
+    background: #8BB233;
+    color: #000;
+    text-transform: capitalize;
+    border: 0;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 7px 10px;
+    font-weight: bold;
+    transition: all .1s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    -webkit-transition: all .1s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    -moz-transition: all .1s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    -o-transition: all .1s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    -ms-transition: all .1s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    outline: none;
+}
+
+.initiativeby {
+    display: flex;
+}
+
+.initiativeby p {
+    width: 5rem;
+    margin: 1rem;
+}
+
+.designation {
+    color: antiquewhite;
+    font-size: 1.5rem;
+}
+
+.head-training {
+    margin-top: 5%;
+    width: 100%;
+    text-align: center;
+}
+
+.training-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.hero-training {
+    margin-left: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 1.88em;
+    padding-bottom: 0;
+}
+
+.training-row {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.training-row::before, .training-row::after {
+    content: " ";
+    display: table;
+}
+
+.training-row::after {
+    clear: both;
+}
+
+.block-content {
+    z-index: 1002;
+    padding: 1.88rem 0 .63rem 0;
+    display: grid;
+}
+
+.no-padding-topbottom {
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+
+.col-xs-12 {
+    position: relative;
+    min-height: 1px;
+    width: 100%;
+}
+
+.module {
+    margin-bottom: 1.25rem;
+}
+
+.featured-related {
+    padding-bottom: 1.25rem;
+}
+
+.training-title {
+    color: #fff;
+    font-size: 2rem;
+    line-height: 3.65rem;
+}
+
+.training-inline {
+    margin-bottom: 1.43em;
+    color: #fff;
+}
+
+.training-link {
+    font-size: 1rem;
+    color: #fff;
+    border-bottom: .13rem solid;
+    border-color: #ACC86B;
+    padding-bottom: .25rem;
+}
+
+.event-wrapper {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 120px;
+    background-color: rgb(255, 255, 255);
+    z-index: 7000;
+    border-radius: 1rem;
+    padding: 2rem 4rem;
+    margin-top: 2rem;
+    margin-top: -10rem;
+}
+
+.event-wrapper1 {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 120px;
+    background-color: rgb(255, 255, 255);
+    z-index: 7000;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    /* margin-top: 2rem;
+    margin-top: -10rem; */
+}
+
+.event-article {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    margin-bottom: 3.5rem;
+}
+
+@media screen and (min-width: 1000px) {
+    .item, .hero-training {
+        /* padding-top: 3.13em; */
+    }
+    .training-row {
+        max-width: 78.125rem;
+    }
+    .block-content {
+        padding-left: 2.19rem;
+        padding-right: 2.19rem;
+    }
+    .hero-wrapper {
+        padding-bottom: 0;
+    }
+    .module {
+        margin-bottom: 3.13rem;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .event-wrapper {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 120px;
+        background-color: rgb(255, 255, 255);
+        z-index: 9000;
+        border-radius: 1rem;
+        padding: 2rem 0.5rem;
+        width: 98%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .initiativeby p {
+        margin: 0.5rem;
+        width: 3.5rem;
+    }
+}
+
+@media screen and (max-height: 680px) {
+    .head-training {
+        margin-top: 0%;
+        width: 100%;
+        text-align: center;
+    }
+}

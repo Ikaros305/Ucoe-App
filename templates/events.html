@@ -1,0 +1,274 @@
+{% extends "layout.html" %} {% block content %}
+<div class="site-wrap" style="z-index: 20005;">
+  <div class="site-mobile-menu" style="z-index: 20006;">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <header class="site-navbar" role="banner" style="top: 0;">
+    <div class="container" style="max-width: 1340px;">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-8 d-none d-xl-block">
+          <nav
+            class="site-navigation position-relative text-right"
+            role="navigation"
+          >
+            <!-- <ul class="side" style="margin: 20px 0;">
+            <img class="nav-svg" src="static\svg\start.svg" alt="" />
+            <li class="side-li">
+              <a href="#webinar" class="active" style="">Webinars</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#events" style="">Upcoming Events</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#news" style="">News Feed</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#clan" style="">UCOE Clan</a>
+            </li>
+            <img class="nav-svg" src="static\svg\end.svg" alt="" />
+          </ul> -->
+            <ul class="site-menu side js-clone-nav mr-auto d-none d-lg-block">
+              <img class="nav-svg" src="..\static\svg\start1.svg" alt="" />
+              <li>
+                <a href="/home"><span class="n-link">Home</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/webinar"><span class="n-link">Webinar</span></a>
+
+                <!-- <ul class="dropdown arrow-top">
+                  <li><a href="comps">Computer Engineering</a></li>
+                  <li><a href="#">Information Technology</a></li>
+                  <li><a href="#">Civil Engineering</a></li>
+                  <li><a href="#">Electronics</a></li>
+                  <li><a href="#">Electronics & Telecommunication</a></li>
+                </ul> -->
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li class="active">
+                <a href="/events"
+                  ><span class="n-link">Upcoming Events</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/ucoeclan"><span class="n-link">Ucoe Clan</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+
+              <li>
+                <a href="/newsf"><span class="n-link">News Feed</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/courses"><span class="n-link">Courses</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="#"><span class="n-link">Virtual Tour</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="http://unibotbeta.000webhostapp.com" target="_blank"
+                  ><span class="n-link">ChatBot</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/profile"><span class="n-link">Profile</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              {% if auth.current_user == None %}
+              <li>
+                <a href="/login"><span class="n-link">Login</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/signup"><span class="n-link">Signup</span></a>
+              </li>
+              {% else %}
+              <li>
+                <form method="POST" style="margin-bottom: 0;">
+                  <a href="#" style="text-decoration: none;">
+                    <button
+                      type="submit"
+                      name="submit"
+                      value="logout"
+                      style="all: unset;"
+                    >
+                      <span class="n-link">LogOut</span>
+                    </button></a
+                  >
+                </form>
+              </li>
+              {% endif %}
+              <img class="nav-svg" src="..\static\svg\end1.svg" alt="" />
+            </ul>
+          </nav>
+        </div>
+
+        <div
+          class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+          style="position: relative; top: 0; margin-left: 10px;"
+        >
+          <a href="#" class="site-menu-toggle js-menu-toggle text-black"
+            ><span class="icon-menu h3" style="font-size: 45px;"></span
+          ></a>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div
+  id="container04"
+  data-scroll-id="one"
+  data-scroll-behavior="center"
+  class="style2 container columns"
+  style="padding: 0; height: 100%; overflow-x: hidden;"
+>
+  <img
+    src="static\svg\circle1.svg"
+    alt="1"
+    style="position: absolute; top: -51px; left: -31px;"
+  />
+  <div
+    class="inner"
+    style="
+      padding: 5rem 1rem 0 1rem;
+      padding-top: 5rem;
+      /* min-height: 51rem; */
+      padding-bottom: 0;
+      height: 100vh;
+      z-index: 1;
+      display: flow-root;
+    "
+  >
+    <div style="width: 100%; margin: 0; padding: 0 0 0 75px;">
+      <h1 id="text13" class="style1" style="padding-bottom: 30px;">
+        Upcoming Events
+      </h1>
+
+      <!-- <div class="partners-cont"> -->
+      <div
+        class="columns is-multiline"
+        style="margin: 0; width: 100%; padding-top: 5px;"
+      >
+        <div
+          class="column"
+          style="
+            /* margin-top: 50px; */
+            width: 100%;
+            margin-right: 0;
+            display: flex;
+            margin-left: auto;
+            padding: 0;
+
+            padding-bottom: 5px;
+            margin-bottom: 40px;
+          "
+        >
+          <h3 style="font-size: 0.75rem; margin: auto;">
+            Mark the date: 22nd Jan 2020
+          </h3>
+          <div class="cont1">
+            <div style="display: flex; width: 100%; margin-right: 20px;">
+              <img src="static\svg\pop1.svg" alt="1" style="" />
+              <img src="static\img\log.png" alt="1" style="width: 100%;" />
+            </div>
+            <div class="overlay2">
+              <div class="text">Aurora 2020</div>
+              <div class="text1">
+                A perfect blend of cultural
+                <br />
+                and sports
+              </div>
+              <a class="text2" href="#">Learn more</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="column"
+          style="
+            /* margin-top: 50px; */
+            width: 100%;
+            margin-right: auto;
+            margin-left: 0;
+            display: flex;
+            padding: 0;
+            padding-bottom: 5px;
+            margin-bottom: 40px;
+          "
+        >
+          <div class="cont">
+            <div class="overlay21">
+              <div class="text">Aurora 2020</div>
+              <div class="text1">
+                A perfect blend of cultural
+                <br />
+                and sports
+              </div>
+              <a class="text2" href="#">Learn more</a>
+            </div>
+            <div style="display: flex; width: 100%;">
+              <img src="static\img\log.png" alt="1" style="width: 100%;" />
+              <img src="static\svg\pop2.svg" alt="1" style="" />
+            </div>
+          </div>
+          <h3 style="font-size: 0.75rem; margin: auto; margin-top: 30px;">
+            Mark the date: 22nd Jan 2020
+          </h3>
+        </div>
+        <div
+          class="column"
+          style="
+            /* margin-top: 50px; */
+            width: 100%;
+            margin-right: 0;
+            display: flex;
+            margin-left: auto;
+            padding: 0;
+            padding-bottom: 5px;
+            margin-bottom: 40px;
+          "
+        >
+          <h3 style="font-size: 0.75rem; margin: auto;">
+            Mark the date: 22nd Jan 2020
+          </h3>
+          <div class="cont1">
+            <div style="display: flex; width: 100%; margin-right: 20px;">
+              <img src="static\svg\pop1.svg" alt="1" style="" />
+              <img src="static\img\log.png" alt="1" style="width: 100%;" />
+            </div>
+            <div class="overlay2">
+              <div class="text">Aurora 2020</div>
+              <div class="text1">
+                A perfect blend of cultural
+                <br />
+                and sports
+              </div>
+              <a class="text2" href="#">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </div>  -->
+  </div>
+</div>
+<img
+  src="static\svg\circle2.svg"
+  alt="1"
+  style="position: absolute; bottom: 14px; left: -50px;"
+/>
+
+{% endblock content %}

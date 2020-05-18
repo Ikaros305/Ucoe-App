@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+</head>
+
+<body>
+    <h1>ADD NEWS</h1>
+    <form method="POST">
+        <input type="text" name="headline" placeholder="Headline">
+        <input type="text" name="story" placeholder="Story">
+        <input type="text" name="imagelink" placeholder="Image Link">
+        <button type="submit" name="submit" value="addNews">POST</button>
+    </form>
+
+    <h1>ADD WEBINAR</h1>
+    <form method="POST">
+        <input type="text" name="link" placeholder="Link">
+        <input type="text" name="professor" placeholder="Professor">
+        <input type="text" name="date" placeholder="Date">
+        <input type="text" name="domain" placeholder="Domain">
+        <button type="submit" name="submit" value="addWebinar">POST</button>
+    </form>
+
+    <label for="newsletter">
+        <h1>ADD NEWSLETTERS</h1>
+    </label>
+    <form method="POST">
+        <input type="text" name="link" placeholder="Link">
+        <input type="text" name="linkcoverpage" placeholder="Link Coverpage">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="issue" placeholder="Issue">
+        <select id="newsletter" name="domain">
+            <option value="COMPUTER">COMPUTER</option>
+            <option value="IT">IT</option>
+            <option value="CIVIL">CIVIL</option>
+            <option value="EXTC">EXTC</option>
+            <option value="ETRX">ETRX</option>
+        </select>
+        <button type="submit" name="submit" value="addNewsletter">POST</button>
+    </form>
+
+    <h1>ADD COURSES</h1>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="link" placeholder="Link">
+        <input type="text" name="description" placeholder="Description">
+        <button type="submit" name="submit" value="addCourses">POST</button>
+    </form>
+
+    <h1>Queries</h1>
+    {% block content %}
+    <div class="queries">
+        {% if querys %}
+        {% for query in querys|reverse %}
+        <div class="query" style="border: 1px solid blue;">
+            <h3>
+                <p class="q_email">Email : {{query.val().email}}</p>
+            </h3>
+            <h3>
+                <p class="q_name">Name : {{query.val().name}}</p>
+            </h3>
+            <h3>
+                <p class="q_message">Message : {{query.val().message}}</p>
+            </h3>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endblock content %}
+
+</body>
+
+</html>

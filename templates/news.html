@@ -1,0 +1,338 @@
+{% extends "layout.html" %} {% block content %}
+<div class="site-wrap" style="z-index: 20005;">
+  <div class="site-mobile-menu" style="z-index: 20006;">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <header class="site-navbar" role="banner" style="top: 0;">
+    <div class="container" style="max-width: 1340px;">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-8 d-none d-xl-block">
+          <nav
+            class="site-navigation position-relative text-right"
+            role="navigation"
+          >
+            <!-- <ul class="side" style="margin: 20px 0;">
+            <img class="nav-svg" src="static\svg\start.svg" alt="" />
+            <li class="side-li">
+              <a href="#webinar" class="active" style="">Webinars</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#events" style="">Upcoming Events</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#news" style="">News Feed</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#clan" style="">UCOE Clan</a>
+            </li>
+            <img class="nav-svg" src="static\svg\end.svg" alt="" />
+          </ul> -->
+            <ul class="site-menu side js-clone-nav mr-auto d-none d-lg-block">
+              <img class="nav-svg" src="..\static\svg\start1.svg" alt="" />
+              <li>
+                <a href="/home"><span class="n-link">Home</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/webinar"><span class="n-link">Webinar</span></a>
+
+                <!-- <ul class="dropdown arrow-top">
+                  <li><a href="comps">Computer Engineering</a></li>
+                  <li><a href="#">Information Technology</a></li>
+                  <li><a href="#">Civil Engineering</a></li>
+                  <li><a href="#">Electronics</a></li>
+                  <li><a href="#">Electronics & Telecommunication</a></li>
+                </ul> -->
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/events"
+                  ><span class="n-link">Upcoming Events</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/ucoeclan"><span class="n-link">Ucoe Clan</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+
+              <li class="active">
+                <a href="/newsf"><span class="n-link">News Feed</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/courses"><span class="n-link">Courses</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="#"><span class="n-link">Virtual Tour</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="http://unibotbeta.000webhostapp.com" target="_blank"
+                  ><span class="n-link">ChatBot</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/profile"><span class="n-link">Profile</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              {% if auth.current_user == None %}
+              <li>
+                <a href="/login"><span class="n-link">Login</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/signup"><span class="n-link">Signup</span></a>
+              </li>
+              {% else %}
+              <li>
+                <form method="POST" style="margin-bottom: 0;">
+                  <a href="#" style="text-decoration: none;">
+                    <button
+                      type="submit"
+                      name="submit"
+                      value="logout"
+                      style="all: unset;"
+                    >
+                      <span class="n-link">LogOut</span>
+                    </button></a
+                  >
+                </form>
+              </li>
+              {% endif %}
+              <img class="nav-svg" src="..\static\svg\end1.svg" alt="" />
+            </ul>
+          </nav>
+        </div>
+
+        <div
+          class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+          style="position: relative; top: 0; margin-left: 10px;"
+        >
+          <a href="#" class="site-menu-toggle js-menu-toggle text-black"
+            ><span class="icon-menu h3" style="font-size: 45px;"></span
+          ></a>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<div
+  style="outline: none; background-color: #ff6f69; height: 100vh;"
+  tabindex="-1"
+  role="group"
+>
+  <!-- <div
+  style="outline: none; background-color: #9da2f4; height: 100vh;"
+  tabindex="-1"
+  role="group"
+> -->
+
+  <!-- {% if depart == "COMPUTER ENGINEERING" %} {%
+                    elif depart == "INFORMATION TECHNOLOGY" %} {% elif depart ==
+                    "CIVIL ENGINEERING" %} {% elif depart == "ELECTRONICS" %} {%
+                    elif depart == "ELECTRONICS & TELECOMMUNICATION" %} {% endif
+                    %} -->
+  <div
+    class="clip-event-training"
+    style="
+      background: none;
+      background-size: contain;
+      background-position: center top;
+      background-color: #ff6f69;
+      height: 37vh;
+      padding: 0;
+    "
+  >
+    <div
+      class="Container-sc-1e7uphc-0 bKAWec jghleH"
+      style="width: 100%; padding: 4rem 0px;"
+    >
+      {% if depart == "COMPUTER ENGINEERING" %}
+      <a href="/profile">
+        <img
+          src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
+          alt=""
+          class="initial2" /></a
+      >{% elif depart == "INFORMATION TECHNOLOGY" %}
+      <a href="/profile">
+        <img
+          src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
+          alt=""
+          class="initial2" /></a
+      >{% elif depart == "CIVIL ENGINEERING" %}
+      <a href="/profile">
+        <img
+          src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
+          alt=""
+          class="initial2"
+      /></a>
+      {% elif depart == "ELECTRONICS" %}
+      <a href="/profile">
+        <img
+          src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
+          alt=""
+          class="initial2"
+      /></a>
+      {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
+      <a href="/profile">
+        <img
+          src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
+          alt=""
+          class="initial2" /></a
+      >{% endif %}
+      <div class="head-training">
+        <div class="training-inner">
+          <div class="item hero-training">
+            <div class="training-row" style="background: white;">
+              <div class="block-content no-padding-topbottom">
+                <div class="col-xs-12 hero-wrapper">
+                  <div class="module">
+                    <div class="module-title-wraper">
+                      <div
+                        style="
+                          font-size: 67px;
+                          font-weight: bolder;
+                          color: #000000;
+                        "
+                      >
+                        NewsFeed.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="Container-sc-1e7uphc-0 bKAWec bKAWec1 jghleH"
+    style="width: 100%; /*height: 63vh;*/ padding: 0;"
+  >
+    <div
+      id="eve"
+      class="event-wrapper"
+      style="
+        width: 100%;
+        /*  height: 63vh;*/
+        background: #f4f4f4;
+        margin-top: 0%;
+        padding: 0;
+        padding: 0 2rem;
+        text-align: center;
+        border-radius: 1.75rem 1.75rem 0 0;
+      "
+    >
+      <div
+        id="newsletter"
+        class="tab-pane fade in active show"
+        style="margin-top: 25px; margin-bottom: 18px;"
+      >
+        {% for news in allnews|reverse|slice(3) %}
+        <div class="issue">
+          <img
+            id="demo{{news[0].val().headline}}"
+            class="collapse in partners--logo sb-avatar__image"
+            src="{{news[0].val().imagelink}}"
+            alt="Default"
+            style="
+              max-width: 100%;
+              margin-bottom: 15px;
+              border-radius: inherit;
+            "
+          />
+
+          <h3 class="news-title">{{news[0].val().headline}}</h3>
+          <p
+            id="demo{{news[0].val().headline}}"
+            class="collapse in news-content"
+          >
+            {{news[0].val().story}}
+          </p>
+          <button
+            class="butt"
+            data-toggle="collapse"
+            data-target="#demo{{news[0].val().headline}}"
+            style="all: unset; width: 100%;"
+          >
+            <h5
+              style="
+                text-align: end;
+                font-size: 0.9rem;
+                font-weight: 200;
+                padding-right: 20px;
+              "
+            >
+              Read more
+            </h5>
+          </button>
+        </div>
+        {% endfor %}
+
+        <span onclick="viewmore()">View All</span>
+      </div>
+      <div
+        id="newsletterall"
+        class="tab-pane fade in active"
+        style="margin-top: 25px; display: none; margin-bottom: 18px;"
+      >
+        {% for news in allnews|reverse %}
+        <div class="issue">
+          <img
+            id="demo{{news.val().headline}}"
+            class="collapse in partners--logo sb-avatar__image"
+            src="{{news.val().imagelink}}"
+            alt="Default"
+            style="max-width: 100%; margin-bottom: 15px;"
+          />
+
+          <h3 class="news-title">{{news.val().headline}}</h3>
+          <p id="demo{{news.val().headline}}" class="collapse in news-content">
+            {{news.val().story}}
+          </p>
+          <button
+            class="butt"
+            data-toggle="collapse"
+            data-target="#demo{{news.val().headline}}"
+            style="all: unset; width: 100%;"
+          >
+            <h5
+              style="
+                text-align: end;
+                font-size: 0.9rem;
+                font-weight: 200;
+                padding-right: 20px;
+              "
+            >
+              Read more
+            </h5>
+          </button>
+        </div>
+        {% endfor %}
+        <!-- <div class="issue">
+          <h3 class="news-title">COFFEE & CODE;</h3>
+          <p class="news-content">
+            Issue 21: April 2020 Edition
+          </p>
+        </div> -->
+        <span onclick="viewless()">View Less</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

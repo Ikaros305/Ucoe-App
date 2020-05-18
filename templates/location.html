@@ -1,0 +1,7 @@
+HI <br /><br />
+{{ auth.current_user }} {% for query in querys|reverse %} NAME:
+{{query.val().Name}} {{query.val().Lastname}}
+<br />
+LOCATION: {{query.val().Location}}
+<br /><br /><br />
+{% endfor %}

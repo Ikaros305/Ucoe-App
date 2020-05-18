@@ -1,0 +1,207 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="site-wrap" style="z-index: 20005;">
+  <div class="site-mobile-menu" style="z-index: 20006;">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <header class="site-navbar" role="banner" style="top: 0;">
+    <div class="container" style="max-width: 1340px;">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-8 d-none d-xl-block">
+          <nav
+            class="site-navigation position-relative text-right"
+            role="navigation"
+          >
+            <!-- <ul class="side" style="margin: 20px 0;">
+            <img class="nav-svg" src="static\svg\start.svg" alt="" />
+            <li class="side-li">
+              <a href="#webinar" class="active" style="">Webinars</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#events" style="">Upcoming Events</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#news" style="">News Feed</a>
+            </li>
+            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+            <li class="side-li">
+              <a href="#clan" style="">UCOE Clan</a>
+            </li>
+            <img class="nav-svg" src="static\svg\end.svg" alt="" />
+          </ul> -->
+            <ul class="site-menu side js-clone-nav mr-auto d-none d-lg-block">
+              <img class="nav-svg" src="..\static\svg\start1.svg" alt="" />
+              <li class="active">
+                <a href="/home"><span class="n-link">Home</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/webinar"><span class="n-link">Webinar</span></a>
+
+                <!-- <ul class="dropdown arrow-top">
+                  <li><a href="comps">Computer Engineering</a></li>
+                  <li><a href="#">Information Technology</a></li>
+                  <li><a href="#">Civil Engineering</a></li>
+                  <li><a href="#">Electronics</a></li>
+                  <li><a href="#">Electronics & Telecommunication</a></li>
+                </ul> -->
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/events"
+                  ><span class="n-link">Upcoming Events</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/ucoeclan"><span class="n-link">Ucoe Clan</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+
+              <li>
+                <a href="/newsf"><span class="n-link">News Feed</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/courses"><span class="n-link">Courses</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="#"><span class="n-link">Virtual Tour</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="http://unibotbeta.000webhostapp.com" target="_blank"
+                  ><span class="n-link">ChatBot</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/profile"><span class="n-link">Profile</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              {% if auth.current_user == None %}
+              <li>
+                <a href="/login"><span class="n-link">Login</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/signup"><span class="n-link">Signup</span></a>
+              </li>
+              {% else %}
+              <li>
+                <form method="POST" style="margin-bottom: 0;">
+                  <a href="#" style="text-decoration: none;">
+                    <button
+                      type="submit"
+                      name="submit"
+                      value="logout"
+                      style="all: unset;"
+                    >
+                      <span class="n-link">LogOut</span>
+                    </button></a
+                  >
+                </form>
+              </li>
+              {% endif %}
+              <img class="nav-svg" src="..\static\svg\end1.svg" alt="" />
+            </ul>
+          </nav>
+        </div>
+
+        <div
+          class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+          style="position: relative; top: 0; margin-left: 10px;"
+        >
+          <a href="#" class="site-menu-toggle js-menu-toggle text-black"
+            ><span class="icon-menu h3" style="font-size: 45px;"></span
+          ></a>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div
+  data-aos="fade-in"
+  class="aos-init aos-animate"
+  style="position: absolute; width: 100%;"
+>
+  <div class="Container-sc-1e7uphc-0 bKAWec" style="margin-top: 190px;">
+    <div class="head-pat">
+      <div class="partners" style="width: 100%;">
+        <div class="partners-contain">
+          <div class="partners-cont">
+            <div class="columns is-multiline">
+              {% for news in allnews|reverse %}
+              <div class="column">
+                <div class="box interview-grid-item has-text-centered">
+                  <div class="interview-grid-item__avatar">
+                    <div
+                      class="partners--logo sb-avatar sb-avatar--src"
+                      style="
+                        display: inline-block;
+                        vertical-align: middle;
+                        border-radius: 100%;
+                        font-family: Helvetica, Arial, sans-serif;
+                      "
+                    >
+                      <img
+                        class="partners--logo sb-avatar__image"
+                        src="{{news.val().imagelink}}"
+                        alt="Default"
+                        style="max-width: 100%;"
+                      />
+                    </div>
+                  </div>
+                  <div class="partners-desc">
+                    <p class="title is-5">{{news.val().headline}}</p>
+                  </div>
+                  <div class="partners-desc">
+                    <p
+                      id="demo{{news.val().headline}}"
+                      class="collapse in title is-6"
+                      style=""
+                    >
+                      {{news.val().story}}
+                    </p>
+                  </div>
+                  {% if auth.current_user == None %}
+                  <a
+                    href="login"
+                    style="
+                      text-decoration: none;
+                      color: black;
+                      cursor: pointer;
+                    "
+                    ><h5 style="text-align: center;">view more</h5></a
+                  >
+                  {% else %}
+                  <button
+                    class="butt"
+                    data-toggle="collapse"
+                    data-target="#demo{{news.val().headline}}"
+                    style="all: unset;"
+                  >
+                    <h5 style="text-align: center;">view more</h5>
+                  </button>
+                  {% endif %}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

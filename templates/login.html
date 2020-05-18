@@ -1,0 +1,256 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="banner1">
+  <div class="container30" id="container30" style="margin: auto;">
+    <div class="form-container sign-up-container">
+      <form autocomplete="off" method="POST">
+        <h1 class="log-title" style="margin-top: 45px;">
+          Create Account
+        </h1>
+        <div class="input-container">
+          <i class="far fa-user-circle fa-lg icon"></i>
+          <input
+            class="input-field"
+            type="text"
+            name="name"
+            placeholder="Name"
+            required="required"
+          />
+        </div>
+        <div class="input-container">
+          <i class="far fa-user fa-lg icon"></i>
+          <input
+            type="text"
+            class="input-field"
+            name="lastname"
+            placeholder="Last Name"
+            required="required"
+          />
+        </div>
+        <div class="input-container">
+          <i class="far fa-envelope fa-lg icon"></i>
+          <input
+            type="email"
+            class="input-field"
+            name="email"
+            placeholder="Email"
+            required="required"
+          />
+        </div>
+        <div class="input-container">
+          <i class="far fa-check-square fa-lg icon"></i>
+          <input
+            class="chosen-value input-field"
+            name="department"
+            type="text"
+            placeholder="Select"
+            readonly
+            required="required"
+          />
+          <ul class="value-list">
+            <li class="dept-list">Computer Engineering</li>
+            <li class="dept-list">Information Technology</li>
+            <li class="dept-list">Civil Engineering</li>
+            <li class="dept-list">Electronics</li>
+            <li class="dept-list">Electronics & Telecommunication</li>
+          </ul>
+        </div>
+        <div class="input-container">
+          <i class="fas fa-map-marker-alt fa-lg icon"></i>
+          <!-- <input
+            type="text"
+            class="input-field"
+            name="location"
+            placeholder="Your Location"
+            required="required"
+          /> -->
+          <input
+            class="chosen-value1 input-field"
+            name="location"
+            type="text"
+            placeholder="Select1"
+            readonly
+            required="required"
+          />
+          <ul class="value-list1">
+            <li class="city-list">Ahmednagar</li>
+            <li class="city-list">Akola</li>
+            <li class="city-list">Alibag</li>
+            <li class="city-list">Amaravati</li>
+            <li class="city-list">Arnala</li>
+            <li class="city-list">Aurangabad</li>
+            <li class="city-list">Bandra</li>
+            <li class="city-list">Bassain</li>
+            <li class="city-list">Belapur</li>
+            <li class="city-list">Bhiwandi</li>
+            <li class="city-list">Bhusaval</li>
+            <li class="city-list">Borliai-Mandla</li>
+            <li class="city-list">Chandrapur</li>
+            <li class="city-list">Dahanu</li>
+            <li class="city-list">Daulatabad</li>
+            <li class="city-list">Dighi</li>
+            <li class="city-list">Dombivali</li>
+            <li class="city-list">Goa</li>
+            <li class="city-list">Jaitapur</li>
+            <li class="city-list">Jalgaon</li>
+            <li class="city-list">Jawaharlal Nehru</li>
+            <li class="city-list">Kalyan</li>
+            <li class="city-list">Karanja</li>
+            <li class="city-list">Kelwa</li>
+            <li class="city-list">Khopoli</li>
+            <li class="city-list">Kolhapur</li>
+            <li class="city-list">Lonavale</li>
+            <li class="city-list">Malegaon</li>
+            <li class="city-list">Malwan</li>
+            <li class="city-list">Manori</li>
+            <li class="city-list">Mira Bhayandar</li>
+            <li class="city-list">Miraj</li>
+            <li class="city-list">Mumbai</li>
+            <li class="city-list">Murad</li>
+            <li class="city-list">Nagapur</li>
+            <li class="city-list">Nagpur</li>
+            <li class="city-list">Nalasopara</li>
+            <li class="city-list">Nanded</li>
+            <li class="city-list">Nandgaon</li>
+            <li class="city-list">Nasik</li>
+            <li class="city-list">Navi Mumbai</li>
+            <li class="city-list">Nhave</li>
+            <li class="city-list">Osmanabad</li>
+            <li class="city-list">Palghar</li>
+            <li class="city-list">Panvel</li>
+            <li class="city-list">Pimpri</li>
+            <li class="city-list">Pune</li>
+            <li class="city-list">Ratnagiri</li>
+            <li class="city-list">Sholapur</li>
+            <li class="city-list">Shrirampur</li>
+            <li class="city-list">Shriwardhan</li>
+            <li class="city-list">Tarapur</li>
+            <li class="city-list">Thana</li>
+            <li class="city-list">Thane</li>
+            <li class="city-list">Trombay</li>
+            <li class="city-list">Varsova</li>
+            <li class="city-list">Vengurla</li>
+            <li class="city-list">Virar</li>
+            <li class="city-list">Wada</li>
+          </ul>
+        </div>
+        <!-- <select id="department" name="department">
+          <option value="computer">Computer Engineering</option>
+          <option value="it">Information Technology</option>
+          <option value="civil">Civil Engineering</option>
+          <option value="electronics">Electronics</option>
+          <option value="extc">Electronics & Telecommunication</option>
+        </select> -->
+        <!-- <div
+          class="chosen-wrapper chosen-wrapper--style2"
+          data-js="custom-scroll"
+        >
+          <select class="chosen-select" data-placeholder="Select">
+            <option></option>
+            <option value="computer">Computer Engineering</option>
+            <option value="it">Information Technology</option>
+            <option value="civil">Civil Engineering</option>
+            <option value="electronics">Electronics</option>
+          </select>
+        </div> -->
+
+        <div class="input-container">
+          <i class="fa fa-lock fa-lg icon"></i>
+          <input
+            class="input-field"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required="required"
+          />
+        </div>
+        <button
+          type="submit"
+          name="submit"
+          value="signup"
+          style="
+            border-radius: 20px;
+            border: 1px solid #647dee;
+            color: #647dee;
+            margin-bottom: 10px;
+          "
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      {% if message %}
+      <div class="alert1" style="background-color:{{ color }};">
+        <span
+          class="closebtn"
+          onclick="this.parentElement.style.display='none'; "
+          >&times;</span
+        >
+        {{message}}
+      </div>
+      {% else %} {% endif %}
+      <form method="POST">
+        <h1 class="log-title" style="">
+          Welcome Back!
+        </h1>
+        <div class="input-container">
+          <i class="far fa-envelope fa-lg icon"></i>
+          <input
+            class="input-field"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required="required"
+          />
+        </div>
+        <div class="input-container">
+          <i class="fa fa-lock fa-lg icon"></i>
+          <input
+            class="input-field"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required="required"
+          />
+        </div>
+        <a href="forgotpass" style="color: #999ef3;">Forgot your password?</a>
+        <button
+          type="submit"
+          name="submit"
+          value="login"
+          style="
+            border-radius: 20px;
+            border: 1px solid #647dee;
+            margin-bottom: 10px;
+            color: #647dee;
+          "
+        >
+          Sign In
+        </button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1 style="font-weight: 300;">Welcome Back!</h1>
+          <p>
+            To keep connected with us please login with your personal info
+          </p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1 style="font-weight: 300;">Hello, Friend!</h1>
+          <p>Let's get started with your journey !</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+    <!-- {% for l in t %}
+    <ul>
+      <li>{{l}}</li>
+    </ul>
+    {% endfor%} -->
+  </div>
+</div>
+{% endblock content %}
