@@ -1,21 +1,10 @@
-const CACHE_NAME = "static-cache";
-
+const CACHE_NAME = "static-cache-v4";
+const dynamicCacheName = "site-dynamic-v4";
 const FILES_TO_CACHE = [
-  "/",
-  "/login",
-  "/forgotpass",
-  "/home",
-  "/webinar",
-  "/newsf",
-  "/ucoeclan",
-  "/profile",
-  "/news",
-  "/courses",
-  "/events",
+  "/offline",
   "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
   "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
   "/static/assets/css/all.min.css",
-  "/static/assets/css/asa.css",
   "/static/assets/css/bootstrap.min.css",
   "/static/assets/css/bootstrap.min.css.map",
   "/static/assets/css/chosen.min.css",
@@ -46,6 +35,16 @@ const FILES_TO_CACHE = [
   "/static/assets/js/select.js",
 ];
 
+const limitCacheSize = (name, size) => {
+  caches.open(name).then((cache) => {
+    cache.keys().then((keys) => {
+      if (keys.length > size) {
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
+      }
+    });
+  });
+};
+
 self.addEventListener("install", (evt) => {
   console.log("ServiceWorker Install");
   evt.waitUntil(
@@ -54,8 +53,8 @@ self.addEventListener("install", (evt) => {
       return cache.addAll(FILES_TO_CACHE);
     }),
   );
-
   self.skipWaiting();
+  console.log("Skipped Waiting");
 });
 self.addEventListener("activate", (evt) => {
   console.log("ServiceWorker Activate");
@@ -73,10 +72,29 @@ self.addEventListener("activate", (evt) => {
   );
   self.clients.claim();
 });
-self.addEventListener("fetch", function (event) {
-  event.respondWith(
-    caches.match(event.request).then(function (response) {
-      return response || fetch(event.request);
-    }),
+// fetch event
+self.addEventListener("fetch", (evt) => {
+  //console.log('fetch event', evt);
+  evt.respondWith(
+    caches
+      .match(evt.request)
+      .then((cacheRes) => {
+        return (
+          cacheRes ||
+          fetch(evt.request).then((fetchRes) => {
+            return caches.open(dynamicCacheName).then((cache) => {
+              cache.put(evt.request.url, fetchRes.clone());
+              // check cached items size
+              limitCacheSize(dynamicCacheName, 15);
+              return fetchRes;
+            });
+          })
+        );
+      })
+      .catch(() => {
+        if (evt.request.url.indexOf(".html") > -1) {
+          return caches.match("/offline");
+        }
+      }),
   );
 });

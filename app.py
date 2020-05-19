@@ -73,7 +73,6 @@ def sw():
     return response
 
 
-
 # signup route
 # @app.route("/signup", methods=["GET", "POST"])
 # def signup():
@@ -285,7 +284,6 @@ def webinar():
         return render_template("webinar.html", querys=allwebinar, auth=auth)
 
     return render_template("webinar.html", auth=auth)
-
 
 
 @app.route("/newsf", methods=["GET", "POST"])
@@ -559,8 +557,12 @@ def location():
 
 @app.route("/events", methods=["GET", "POST"])
 def events():
-
     return render_template("events.html", auth=auth)
+
+
+@app.route("/offline", methods=["GET", "POST"])
+def offline():
+    return render_template("offline.html", auth=auth)
 
 
 @app.route("/adminlogin.html", methods=["GET", "POST"])
