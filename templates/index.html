@@ -83,30 +83,11 @@
                 <a href="/profile"><span class="n-link">Profile</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" /> -->
-              {% if auth.current_user == None %}
+
               <li>
-                <a href="/login"><span class="n-link">Login / Signup</span></a>
+                <a href="/login"><span class="n-link">Login / SignUp</span></a>
               </li>
-              <!-- <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
-              <li>
-                <a href="/login"><span class="n-link">Signup</span></a>
-              </li> -->
-              {% else %}
-              <li>
-                <form method="POST" style="margin-bottom: 0;">
-                  <a href="#" style="text-decoration: none;">
-                    <button
-                      type="submit"
-                      name="submit"
-                      value="logout"
-                      style="all: unset;"
-                    >
-                      <span class="n-link">LogOut</span>
-                    </button></a
-                  >
-                </form>
-              </li>
-              {% endif %}
+
               <img class="nav-svg" src="..\static\svg\end1.svg" alt="" />
             </ul>
           </nav>

@@ -39,11 +39,11 @@
             <ul class="site-menu side js-clone-nav mr-auto d-none d-lg-block">
               <img class="nav-svg" src="..\static\svg\start1.svg" alt="" />
               <li>
-                <a href="#first"><span class="n-link">Home</span></a>
+                <a href="/home"><span class="n-link">Home</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="#webinar"><span class="n-link">Webinar</span></a>
+                <a href="/webinar"><span class="n-link">Webinar</span></a>
 
                 <!-- <ul class="dropdown arrow-top">
                     <li><a href="comps">Computer Engineering</a></li>
@@ -54,35 +54,43 @@
                   </ul> -->
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li class="active">
+                <a href="/events"
+                  ><span class="n-link">Upcoming Events</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="#ucoeclan"><span class="n-link">Ucoe Clan</span></a>
+                <a href="/ucoeclan"><span class="n-link">Ucoe Clan</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
 
-              <!-- <li>
-                  <a href="/newsf"><span class="n-link">News Feed</span></a>
-                </li>
-                <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" /> -->
-              <!-- <li>
-                  <a href="/courses"><span class="n-link">Courses</span></a>
-                </li>
-                <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
-                <li>
-                  <a href="#"  
-                    ><span class="n-link">Virtual Tour</span></a
-                  >
-                </li>
-                <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
-                <li>
-                  <a href="http://unibotbeta.000webhostapp.com"  target="_blank"
-                    ><span class="n-link">ChatBot</span></a
-                  >
-                </li>
-                <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
-                <li>
-                  <a href="/profile"><span class="n-link">Profile</span></a>
-                </li>
-                <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" /> -->
+              <li>
+                <a href="/newsf"><span class="n-link">News Feed</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/courses"><span class="n-link">Courses</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="#"><span class="n-link">Virtual Tour</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="http://unibotbeta.000webhostapp.com" target="_blank"
+                  ><span class="n-link">ChatBot</span></a
+                >
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="/profile"><span class="n-link">Profile</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+
+              <li>
+                <a href="/logout"><span class="n-link">Logout</span></a>
+              </li>
 
               <img class="nav-svg" src="..\static\svg\end1.svg" alt="" />
             </ul>
@@ -91,7 +99,7 @@
 
         <div
           class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
-          style="position: relative; top: 10px; margin-left: 22px;"
+          style="position: relative; top: 0; margin-left: 10px;"
         >
           <a href="#" class="site-menu-toggle js-menu-toggle text-black"
             ><span class="icon-menu h3" style="font-size: 45px;"></span
@@ -100,14 +108,5 @@
       </div>
     </div>
   </header>
-</div>
-<div id="wrapper">
-  <div id="main">
-    <div class="inner">
-      <h5>OOPS!</h5>
-      <p>Currently you can't view this page without a connection.</p>
-      <a href="/" class="btn-small orange z-depth-0">Go to the Homepage</a>
-    </div>
-  </div>
 </div>
 {% endblock content %}

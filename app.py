@@ -6,7 +6,8 @@ import pyrebase
 import json
 from flask import *
 from flask_mail import Mail, Message
-from flask import make_response, send_from_directory
+from flask import make_response, send_from_directory, session, request
+import requests
 
 
 ############   TEST EMAIL ID   ###############
@@ -31,6 +32,7 @@ auth = firebase.auth()
 # admin Credentials
 admin_email = {"admin1@gmail.com": "password", "admin2@gmail.com": "password"}
 
+user = None
 
 # db.child("Names").push({"Name": "Utsav", "Email" : "utsav@gmail.com"})
 # db.child("Names/Student Names/-M4w_T2u6lIePYjnq1Ht").update({"Name": "Utsav", "Email" : "maan@gmail.com"})
@@ -41,6 +43,7 @@ admin_email = {"admin1@gmail.com": "password", "admin2@gmail.com": "password"}
 # new instance of Flask
 app = Flask(__name__)
 
+app.secret_key = os.urandom(24)
 #####FOR MAIL#####
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 465
@@ -109,42 +112,49 @@ def sw():
 #             # return render_template("login.html", t=to.values())
 #     return render_template("signup.html", auth=auth)
 
-
+@app.route('/logout')
+def logout():
+    # remove the username from the session if it is there
+    session.pop('usr', None)
+    return redirect(url_for('index'))
 # index route
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if auth.current_user != None:
+    # auth.current_user = None
+    # if auth.current_user != None:
+    #     return redirect(url_for("home"))
+    try:
+        print(session['usr'])
         return redirect(url_for("home"))
+    except KeyError:
+        allposts = db.child("Posts").get()
+        allwebinar = db.child("Webinar").get()
+        if request.method == "POST":
+            if request.form["submit"] == "Send Message":
+                try:
+                    name = request.form["name"]
+                    email = request.form["email"]
+                    message = request.form["message"]
+                    msg = Message(
+                        "Hello {}".format(name.capitalize()),
+                        sender="sample1test.it2@gmail.com",
+                        recipients=[email],
+                    )
+                    msg.body = "Hello {}, \n We received your mail regarding a query \n This is your Query :- {} \n \n We hope to resolve your Query as soon as possible".format(
+                        name.capitalize(), message
+                    )
+                    mail.send(msg)
+                    query = {"email": email, "message": message, "name": name}
+                    db.child("Queries").push(query)
+                    return render_template("thankyou.htm")
+                except:
+                    return render_template("failed.htm")
 
-    allposts = db.child("Posts").get()
-    allwebinar = db.child("Webinar").get()
-    if request.method == "POST":
-        if request.form["submit"] == "Send Message":
-            try:
-                name = request.form["name"]
-                email = request.form["email"]
-                message = request.form["message"]
-                msg = Message(
-                    "Hello {}".format(name.capitalize()),
-                    sender="sample1test.it2@gmail.com",
-                    recipients=[email],
-                )
-                msg.body = "Hello {}, \n We received your mail regarding a query \n This is your Query :- {} \n \n We hope to resolve your Query as soon as possible".format(
-                    name.capitalize(), message
-                )
-                mail.send(msg)
-                query = {"email": email, "message": message, "name": name}
-                db.child("Queries").push(query)
-                return render_template("thankyou.htm")
-            except:
-                return render_template("failed.htm")
-        elif request.form["submit"] == "logout":
-            auth.current_user = None
-    if allwebinar.val() == None:
-        return render_template("index.html", auth=auth)
-    else:
-        # return render_template("index.html", posts=allposts)
-        return render_template("index.html", auth=auth, querys=allwebinar)
+                # if allwebinar.val() == None:
+                #     return render_template("index.html")
+                # else:
+                    # return render_template("index.html", posts=allposts)
+        return render_template("index.html", querys=allwebinar)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -155,11 +165,17 @@ def login():
             email = request.form["email"]
             password = request.form["password"]
             try:
+                # global user
                 # login in the user
                 user = auth.sign_in_with_email_and_password(email, password)
+                # return user
+                user = auth.refresh(user['refreshToken'])
+                user_id = user['idToken']
+                session['usr'] = user_id
                 users = db.child("Student Name").get()
-                user = users.val()
-                for key, values in user.items():
+                user1 = users.val()
+                # return user1
+                for key, values in user1.items():
                     # return values
                     for inkey, invalues in values.items():
                         # return inkey
@@ -171,7 +187,7 @@ def login():
                                 return redirect(url_for("home"))
                             except:
                                 return "No NEWS FOUND."
-                                # return "NO NEWS FOUND"
+                            # return "NO NEWS FOUND"
                             # return redirect(url_for("home"))
                             # render_template(
                             #     "index.html", user_detail=user_name, auth=auth, depart=dept
@@ -213,7 +229,7 @@ def login():
                     message="The email is already taken, try another one, please", color="#FFAA2C"
                 )
             # return render_template("forgotpass.html")
-    return render_template("login.html", auth=auth)
+    return render_template("login.html")
 
 
 @app.route("/forgotpass", methods=["GET", "POST"])
@@ -234,21 +250,22 @@ def forgotpass():
 
 @app.route("/home", methods=["GET", "POST"])
 def home():
-    if auth.current_user == None:
-        return redirect(url_for("login"))
-    if request.method == "POST":
-        if request.form["submit"] == "logout":
-            auth.current_user = None
-            return redirect(url_for("login"))
+    # if request.method == "POST":
+
     users = db.child("Student Name").get()
     allnewsletter = db.child("Newsletter").get()
-    user = users.val()
-    if auth.current_user != None:
-        for key, values in user.items():
+
+    # a = {"a": abc, "b": auth.current_user}
+    # return a
+    user1 = users.val()
+    try:
+        print(session['usr'])
+        abc = auth.get_account_info(session['usr'])
+        for key, values in user1.items():
             # return values
             for inkey, invalues in values.items():
                 # return inkey
-                if auth.current_user["email"] in invalues:
+                if abc["users"][0]["email"] in invalues:
                     user_name = values["Name"].upper()
                     dept = values["Department"].upper()
                     first_name = values["Name"]
@@ -259,90 +276,86 @@ def home():
                         querys=allnewsletter,
                         first_detail=first_name,
                         last_detail=last_name,
-                        auth=auth,
+                        email=abc["users"][0]["email"],
                         depart=dept
                     )
-    else:
-        return render_template("home.html", auth=auth)
+    except KeyError:
+        return redirect(url_for("index"))
 
 
 # Webinar
 
 @app.route("/webinar", methods=["GET", "POST"])
 def webinar():
-    if auth.current_user == None:
-        return redirect(url_for("login"))
-    if request.method == "POST":
-        if request.form["submit"] == "logout":
-            auth.current_user = None
-            return redirect(url_for("login"))
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    # if request.method == "POST":
+    try:
+        print(session['usr'])
+        allwebinar = db.child("Webinar").get()
+        if allwebinar.val() == None:
+            return render_template("webinar.html")
+        else:
+            return render_template("webinar.html", querys=allwebinar)
 
-    allwebinar = db.child("Webinar").get()
-    if allwebinar.val() == None:
-        return render_template("webinar.html", auth=auth)
-    else:
-        return render_template("webinar.html", querys=allwebinar, auth=auth)
-
-    return render_template("webinar.html", auth=auth)
+    except KeyError:
+        return redirect(url_for("index"))
 
 
 @app.route("/newsf", methods=["GET", "POST"])
 def newsf():
-    if auth.current_user == None:
-        return redirect(url_for("login"))
-    if request.method == "POST":
-        if request.form["submit"] == "logout":
-            auth.current_user = None
-            return redirect(url_for("login"))
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    # if request.method == "POST":
     # try:
-    news_get = db.child("News Updates").get()
-    users = db.child("Student Name").get()
-    user = users.val()
-    if auth.current_user != None:
+
+    try:
+        print(session['usr'])
+        news_get = db.child("News Updates").get()
+        users = db.child("Student Name").get()
+        user = users.val()
+        abc = auth.get_account_info(session['usr'])
         for key, values in user.items():
             # return values
             for inkey, invalues in values.items():
                 # return inkey
-                if auth.current_user["email"] in invalues:
+                if abc["users"][0]["email"] in invalues:
                     user_name = values["Name"].upper()
                     first_name = values["Name"]
                     last_name = values["Lastname"]
                     dept = values["Department"].upper()
-                    return render_template("news.html", allnews=news_get, auth=auth, first_detail=first_name,
-                                           last_detail=last_name, depart=dept)
-
-    # except:
-    #     return "No NEWS FOUND."
+                    return render_template("news.html", allnews=news_get, first_detail=first_name, last_detail=last_name, depart=dept)
+    except KeyError:
+        return redirect(url_for("index"))
 
 
 @app.route("/ucoeclan", methods=["GET", "POST"])
 def ucoeclan():
-    if auth.current_user == None:
-        return redirect(url_for("login"))
-    if request.method == "POST":
-        if request.form["submit"] == "logout":
-            auth.current_user = None
-            return redirect(url_for("login"))
-
-    return render_template("ucoeclan.html", auth=auth)
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    try:
+        print(session['usr'])
+        return render_template("ucoeclan.html")
+    except KeyError:
+        return redirect(url_for("index"))
 
 
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
-    if auth.current_user == None:
-        return redirect(url_for("login"))
-    if request.method == "POST":
-        if request.form["submit"] == "logout":
-            auth.current_user = None
-            return redirect(url_for("login"))
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    # if request.method == "POST":
+
     users = db.child("Student Name").get()
     user = users.val()
-    if auth.current_user != None:
+    try:
+        print(session['usr'])
+        abc = auth.get_account_info(session['usr'])
         for key, values in user.items():
             # return values
             for inkey, invalues in values.items():
                 # return inkey
-                if auth.current_user["email"] in invalues:
+                if abc["users"][0]["email"] in invalues:
                     user_name = values["Name"].upper()
                     first_name = values["Name"]
                     location = values["Location"]
@@ -353,57 +366,59 @@ def profile():
                         "profile.html",
                         first_detail=first_name,
                         last_detail=last_name,
-                        auth=auth,
+                        email=abc["users"][0]["email"],
                         loc=location,
                         depart=dept
                     )
-    else:
-        return render_template("profile.html", auth=auth)
+    except KeyError:
+        return redirect(url_for("index"))
 
 
 @app.route("/ucoeclan/<dept>", methods=["GET", "POST"])
 def ucoeclan1(dept):
-    if auth.current_user == None:
-        return redirect(url_for("login"))
-    if request.method == "POST":
-        if request.form["submit"] == "logout":
-            auth.current_user = None
-            return redirect(url_for("login"))
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    # if request.method == "POST":
+
     allnewsletter = db.child("Newsletter").get()
     users = db.child("Student Name").get()
     user = users.val()
-    if auth.current_user != None:
+    try:
+        print(session['usr'])
+        abc = auth.get_account_info(session['usr'])
         if dept != None:
             for key, values in user.items():
                 # return values
                 for inkey, invalues in values.items():
                     # return inkey
-                    if auth.current_user["email"] in invalues:
+                    if abc["users"][0]["email"] in invalues:
                         user_name = values["Name"].upper()
                         # dept = values["Department"].upper()
                         first_name = values["Name"]
                         last_name = values["Lastname"]
                         return render_template("depart.html",  first_detail=first_name,
-                                               last_detail=last_name, auth=auth, querys=allnewsletter, depart=dept)
+                                               last_detail=last_name, querys=allnewsletter, depart=dept)
+    except KeyError:
+        return redirect(url_for("index"))
 
 
 @app.route("/news", methods=["GET", "POST"])
 def news():
 
-    if auth.current_user == None:
-        return redirect(url_for("login"))
-    if request.method == "POST":
-        if request.form["submit"] == "logout":
-            auth.current_user = None
-            return redirect(url_for("login"))
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    # if request.method == "POST":
+
     users = db.child("Student Name").get()
     user = users.val()
-    if auth.current_user != None:
+    try:
+        print(session['usr'])
+        abc = auth.get_account_info(session['usr'])
         for key, values in user.items():
             # return values
             for inkey, invalues in values.items():
                 # return inkey
-                if auth.current_user["email"] in invalues:
+                if abc["users"][0]["email"] in invalues:
                     user_name = values["Name"].upper()
                     dept = values["Department"].upper()
                     first_name = values["Name"]
@@ -415,38 +430,80 @@ def news():
                             "student.html",
                             allnews=news_get,
                             user_detail=user_name,
-                            auth=auth,
                             first_detail=first_name,
                             last_detail=last_name, depart=dept
                         )
 
                     except:
                         return "No NEWS FOUND."
-    else:
-        try:
-            news_get = db.child("News Updates").get()
-
-            return render_template("student.html", allnews=news_get, auth=auth)
-
-        except:
-            return "No NEWS FOUND."
+    except KeyError:
+        return redirect(url_for("index"))
 
 # Comps
 @app.route("/comps", methods=["GET", "POST"])
 def comps():
-    if auth.current_user == None:
-        return redirect(url_for("login"))
-    if request.method == "POST":
-        if request.form["submit"] == "logout":
-            auth.current_user = None
-            return redirect(url_for("login"))
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    # if request.method == "POST":
 
     allnewsletter = db.child("Newsletter").get()
     if allnewsletter.val() == None:
-        return render_template("comps.html", auth=auth)
+        return render_template("comps.html")
     else:
-        return render_template("comps.html", querys=allnewsletter, auth=auth)
-    return render_template("comps.html", auth=auth)
+        return render_template("comps.html", querys=allnewsletter)
+
+
+@app.route("/courses", methods=["GET", "POST"])
+def courses():
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    # if request.method == "POST":
+
+    allquery = db.child("Courses").get()
+    users = db.child("Student Name").get()
+    user = users.val()
+    try:
+        print(session['usr'])
+        abc = auth.get_account_info(session['usr'])
+        if allquery.val() == None:
+            return render_template("courses.html")
+        else:
+            for key, values in user.items():
+                # return values
+                for inkey, invalues in values.items():
+                    # return inkey
+                    if abc["users"][0]["email"] in invalues:
+                        user_name = values["Name"].upper()
+                        dept = values["Department"].upper()
+                        first_name = values["Name"]
+                        last_name = values["Lastname"]
+                        return render_template("courses.html", first_detail=first_name,
+                                               last_detail=last_name, querys=allquery,  depart=dept)
+    except KeyError:
+        return redirect(url_for("index"))
+
+
+@app.route("/events", methods=["GET", "POST"])
+def events():
+    try:
+        print(session['usr'])
+        return render_template("events.html", )
+    except KeyError:
+        return redirect(url_for("index"))
+
+
+@app.route("/location", methods=["GET", "POST"])
+def location():
+    allquery = db.child("Student Name").get()
+    if allquery.val() == None:
+        return render_template("location.html")
+    else:
+        return render_template("location.html", querys=allquery, )
+
+
+@app.route("/offline", methods=["GET", "POST"])
+def offline():
+    return render_template("offline.html")
 
 
 @app.route("/admin.html", methods=["GET", "POST"])
@@ -516,53 +573,6 @@ def admin():
         return render_template("admin.html")
     else:
         return render_template("admin.html", querys=allquery)
-
-
-@app.route("/courses", methods=["GET", "POST"])
-def courses():
-    if auth.current_user == None:
-        return redirect(url_for("login"))
-    if request.method == "POST":
-        if request.form["submit"] == "logout":
-            auth.current_user = None
-            return redirect(url_for("login"))
-    allquery = db.child("Courses").get()
-    users = db.child("Student Name").get()
-    user = users.val()
-    if auth.current_user != None:
-        if allquery.val() == None:
-            return render_template("courses.html")
-        else:
-            for key, values in user.items():
-                # return values
-                for inkey, invalues in values.items():
-                    # return inkey
-                    if auth.current_user["email"] in invalues:
-                        user_name = values["Name"].upper()
-                        dept = values["Department"].upper()
-                        first_name = values["Name"]
-                        last_name = values["Lastname"]
-                        return render_template("courses.html", first_detail=first_name,
-                                               last_detail=last_name, querys=allquery, auth=auth, depart=dept)
-
-
-@app.route("/location", methods=["GET", "POST"])
-def location():
-    allquery = db.child("Student Name").get()
-    if allquery.val() == None:
-        return render_template("location.html")
-    else:
-        return render_template("location.html", querys=allquery, auth=auth)
-
-
-@app.route("/events", methods=["GET", "POST"])
-def events():
-    return render_template("events.html", auth=auth)
-
-
-@app.route("/offline", methods=["GET", "POST"])
-def offline():
-    return render_template("offline.html", auth=auth)
 
 
 @app.route("/adminlogin.html", methods=["GET", "POST"])

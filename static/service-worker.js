@@ -1,10 +1,12 @@
-const CACHE_NAME = "static-cache-v4";
-const dynamicCacheName = "site-dynamic-v4";
-const FILES_TO_CACHE = [
+const staticCacheName = "site-static-v2";
+const dynamicCacheName = "site-dynamic-v1";
+const assets = [
+  "/",
   "/offline",
   "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
   "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
   "/static/assets/css/all.min.css",
+  "/static/assets/css/asa.css",
   "/static/assets/css/bootstrap.min.css",
   "/static/assets/css/bootstrap.min.css.map",
   "/static/assets/css/chosen.min.css",
@@ -35,6 +37,7 @@ const FILES_TO_CACHE = [
   "/static/assets/js/select.js",
 ];
 
+// cache size limit function
 const limitCacheSize = (name, size) => {
   caches.open(name).then((cache) => {
     cache.keys().then((keys) => {
@@ -45,56 +48,54 @@ const limitCacheSize = (name, size) => {
   });
 };
 
+// install event
 self.addEventListener("install", (evt) => {
-  console.log("ServiceWorker Install");
+  //console.log('service worker installed');
   evt.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("[ServiceWorker] Pre-caching offline page");
-      return cache.addAll(FILES_TO_CACHE);
+    caches.open(staticCacheName).then((cache) => {
+      console.log("caching shell assets");
+      cache.addAll(assets);
     }),
   );
-  self.skipWaiting();
-  console.log("Skipped Waiting");
 });
+
+// activate event
 self.addEventListener("activate", (evt) => {
-  console.log("ServiceWorker Activate");
+  //console.log('service worker activated');
   evt.waitUntil(
-    caches.keys().then((keyList) => {
+    caches.keys().then((keys) => {
+      //console.log(keys);
       return Promise.all(
-        keyList.map((key) => {
-          if (key !== CACHE_NAME) {
-            console.log("[ServiceWorker] Removing old cache", key);
-            return caches.delete(key);
-          }
-        }),
+        keys
+          .filter((key) => key !== staticCacheName && key !== dynamicCacheName)
+          .map((key) => caches.delete(key)),
       );
     }),
   );
-  self.clients.claim();
 });
+
 // fetch event
 self.addEventListener("fetch", (evt) => {
-  //console.log('fetch event', evt);
-  evt.respondWith(
-    caches
-      .match(evt.request)
-      .then((cacheRes) => {
-        return (
-          cacheRes ||
-          fetch(evt.request).then((fetchRes) => {
-            return caches.open(dynamicCacheName).then((cache) => {
-              cache.put(evt.request.url, fetchRes.clone());
-              // check cached items size
-              limitCacheSize(dynamicCacheName, 15);
-              return fetchRes;
-            });
-          })
-        );
-      })
-      .catch(() => {
-        if (evt.request.url.indexOf(".html") > -1) {
-          return caches.match("/offline");
-        }
-      }),
-  );
+  if (evt.request.url.indexOf("firestore.googleapis.com") === -1) {
+    evt.respondWith(
+      caches
+        .match(evt.request)
+        .then((cacheRes) => {
+          return (
+            cacheRes ||
+            fetch(evt.request).then((fetchRes) => {
+              return caches.open(dynamicCacheName).then((cache) => {
+                cache.put(evt.request.url, fetchRes.clone());
+                // check cached items size
+                limitCacheSize(dynamicCacheName, 15);
+                return fetchRes;
+              });
+            })
+          );
+        })
+        .catch(() => {
+          return caches.match("/pages/fallback.html");
+        }),
+    );
+  }
 });
