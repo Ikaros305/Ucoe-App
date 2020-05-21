@@ -1,10 +1,11 @@
-const staticCacheName = "site-static-v2";
-const dynamicCacheName = "site-dynamic-v1";
+const staticCacheName = "site-static-v3";
+const dynamicCacheName = "site-dynamic-v3";
 const assets = [
   "/",
   "/offline",
   "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
   "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
+  "/static/Uni.mp4",
   "/static/assets/css/all.min.css",
   "/static/assets/css/asa.css",
   "/static/assets/css/bootstrap.min.css",
@@ -57,6 +58,7 @@ self.addEventListener("install", (evt) => {
       cache.addAll(assets);
     }),
   );
+  self.skipWaiting();
 });
 
 // activate event
@@ -72,6 +74,8 @@ self.addEventListener("activate", (evt) => {
       );
     }),
   );
+
+  self.clients.claim();
 });
 
 // fetch event

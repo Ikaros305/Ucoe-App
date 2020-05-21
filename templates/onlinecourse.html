@@ -1,0 +1,141 @@
+{% extends "layout.html" %} {% block content %}
+<div class="site-wrap" style="z-index: 20005;">
+  <div class="site-mobile-menu" style="z-index: 20006;">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-navbar" role="banner" style="top: 0;">
+    <div class="container" style="max-width: 1340px;">
+      <div class="row align-items-center">
+        <div
+          class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+          style="position: relative; top: 0; margin-left: 10px;"
+        >
+          <a href="#" class="site-menu-toggle js-menu-toggle text-black"
+            ><span
+              class="icon-chevron-left h3"
+              onclick="goBack()"
+              style="font-size: 45px;"
+            ></span
+          ></a>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div
+  style="outline: none; background-color: #70a1d7; height: 100vh;"
+  tabindex="-1"
+  role="group"
+>
+  <!-- <div
+  style="outline: none; background-color: #9da2f4; height: 100vh;"
+  tabindex="-1"
+  role="group"
+> -->
+
+  <div
+    class="clip-event-training"
+    style="
+      background: none;
+      background-size: contain;
+      background-position: center top;
+      background-color: #70a1d7;
+      height: 37vh;
+      padding: 0;
+    "
+  >
+    <div
+      class="Container-sc-1e7uphc-0 bKAWec jghleH"
+      style="width: 100%; padding: 4rem 0px;"
+    >
+      <div class="head-training">
+        <div class="training-inner">
+          <div class="item hero-training">
+            <div class="training-row" style="background: white;">
+              <div class="block-content no-padding-topbottom">
+                <div class="col-xs-12 hero-wrapper">
+                  <div class="module">
+                    <div class="module-title-wraper">
+                      <div
+                        style="
+                          font-size: 67px;
+                          font-weight: bolder;
+                          color: #000000;
+                        "
+                      >
+                        Courses.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="Container-sc-1e7uphc-0 bKAWec bKAWec1 jghleH"
+    style="width: 100%; /*height: 63vh;*/ padding: 0;"
+  >
+    <div
+      id="eve"
+      class="event-wrapper"
+      style="
+        width: 100%;
+        height: 63vh;
+        background: #f4f4f4;
+        margin-top: 0%;
+        padding: 0;
+        padding: 0 2rem;
+        text-align: center;
+        border-radius: 1.75rem 1.75rem 0 0;
+      "
+    >
+      <div
+        id="newsletterall"
+        class="tab-pane fade in active show"
+        style="margin-top: 25px; display: none; margin-bottom: 18px;"
+      >
+        {% for query in querys|reverse %}
+        <div class="issue">
+          <h3 class="news-title">{{query.val().name}}</h3>
+          <p class="news-content">
+            {{query.val().description}}
+          </p>
+          <a href=" {{query.val().link}}" target="_blank" style="all: unset;">
+            <button class="butt" style="all: unset; width: 100%;">
+              <h5
+                style="
+                  text-align: end;
+                  font-size: 0.9rem;
+                  font-weight: 200;
+                  padding-right: 20px;
+                "
+              >
+                Enroll Now
+              </h5>
+            </button></a
+          >
+        </div>
+        {% endfor %}
+        <!-- <div class="issue">
+          <h3 class="news-title">COFFEE & CODE;</h3>
+          <p class="news-content">
+            Issue 21: April 2020 Edition
+          </p>
+        </div> -->
+        <!-- <span>View More</span> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

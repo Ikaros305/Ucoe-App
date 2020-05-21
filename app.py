@@ -483,6 +483,21 @@ def courses():
         return redirect(url_for("index"))
 
 
+@app.route("/courses1", methods=["GET", "POST"])
+def courses1():
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    # if request.method == "POST":
+
+    allquery = db.child("Courses").get()
+    users = db.child("Student Name").get()
+    user = users.val()
+    if allquery.val() == None:
+        return render_template("onlinecourse.html")
+    else:
+        return render_template("onlinecourse.html", querys=allquery)
+
+
 @app.route("/events", methods=["GET", "POST"])
 def events():
     try:

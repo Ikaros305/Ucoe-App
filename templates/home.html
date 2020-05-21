@@ -64,7 +64,7 @@
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="/courses"><span class="n-link">Courses</span></a>
+                <a href="/courses"><span class="n-link">Online Courses</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
@@ -396,9 +396,8 @@
                           class="tab-pane fade in active show"
                           style="margin-top: 25px;"
                         >
-                          {% if depart == "COMPUTER ENGINEERING" %} {% for query
-                          in querys|reverse %} {% if query.val().domain ==
-                          "COMPUTER"%}
+                          {% if depart == "COMPUTER ENGINEERING" %} {% for query in querys|reverse %}
+                           {% if query.val().domain == "COMPUTER" %}
                           <div class="issue">
                             <a
                               href="{{query.val().link}}"
@@ -414,9 +413,8 @@
                               </p>
                             </a>
                           </div>
-                          {%endif%} {% endfor %}{% elif depart == "INFORMATION
-                          TECHNOLOGY" %} {% for query in querys|reverse %} {% if
-                          query.val().domain == "IT"%}
+                          {% endif %} {% endfor %}{% elif depart == "INFORMATION TECHNOLOGY" %} 
+                          {% for query in querys|reverse %} {% if query.val().domain == "IT" %}
                           <div class="issue">
                             <a
                               href="{{query.val().link}}"
@@ -432,9 +430,8 @@
                               </p>
                             </a>
                           </div>
-                          {%endif%} {% endfor %} {% elif depart == "CIVIL
-                          ENGINEERING" %} {% for query in querys|reverse %} {%
-                          if query.val().domain == "CIVIL"%}
+                          {%endif%} {% endfor %} {% elif depart == "CIVIL ENGINEERING" %}
+                           {% for query in querys|reverse %} {% if query.val().domain == "CIVIL"%}
                           <div class="issue">
                             <a
                               href="{{query.val().link}}"
@@ -450,9 +447,8 @@
                               </p>
                             </a>
                           </div>
-                          {%endif%} {% endfor %} {% elif depart == "ELECTRONICS"
-                          %} {% for query in querys|reverse %} {% if
-                          query.val().domain == "ETRX"%}
+                          {%endif%} {% endfor %} {% elif depart == "ELECTRONICS" %} 
+                          {% for query in querys|reverse %} {% if query.val().domain == "ETRX"%}
                           <div class="issue">
                             <a
                               href="{{query.val().link}}"
@@ -469,8 +465,8 @@
                             </a>
                           </div>
                           {%endif%} {% endfor %}
-                           {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %} {% for query in querys|reverse
-                          %} {% if query.val().domain == "EXTC"%}
+                           {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
+                            {% for query in querys|reverse %} {% if query.val().domain == "EXTC"%}
                           <div class="issue">
                             <a
                               href="{{query.val().link}}"
@@ -494,7 +490,7 @@
                               Issue 21: April 2020 Edition
                             </p>
                           </div> -->
-                          <span>View All</span>
+                          <!-- <span>View All</span> -->
                         </div>
                         <div id="rd" class="tab-pane fade"   style="margin-top: 25px;">
                           <div class="issue">
