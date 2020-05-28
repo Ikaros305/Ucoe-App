@@ -1,11 +1,10 @@
-const staticCacheName = "site-static-v3";
-const dynamicCacheName = "site-dynamic-v3";
+const staticCacheName = "site-static-v9";
+const dynamicCacheName = "site-dynamic-v9";
 const assets = [
   "/",
   "/offline",
   "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
   "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
-  "/static/Uni.mp4",
   "/static/assets/css/all.min.css",
   "/static/assets/css/asa.css",
   "/static/assets/css/bootstrap.min.css",
@@ -91,14 +90,14 @@ self.addEventListener("fetch", (evt) => {
               return caches.open(dynamicCacheName).then((cache) => {
                 cache.put(evt.request.url, fetchRes.clone());
                 // check cached items size
-                limitCacheSize(dynamicCacheName, 15);
+                limitCacheSize(dynamicCacheName, 20);
                 return fetchRes;
               });
             })
           );
         })
         .catch(() => {
-          return caches.match("/pages/fallback.html");
+          return caches.match("/offline");
         }),
     );
   }

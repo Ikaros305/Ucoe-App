@@ -15,24 +15,24 @@
         <div class="col-12 col-md-8 d-none d-xl-block">
           <nav class="site-navigation position-relative text-right" role="navigation">
             <!-- <ul class="side" style="margin: 20px 0;">
-            <img class="nav-svg" src="static\svg\start.svg" alt="" />
-            <li class="side-li">
-              <a href="#webinar" class="active" style="">Webinars</a>
-            </li>
-            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
-            <li class="side-li">
-              <a href="#events" style="">Upcoming Events</a>
-            </li>
-            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
-            <li class="side-li">
-              <a href="#news" style="">News Feed</a>
-            </li>
-            <img class="nav-svg" src="static\svg\mid.svg" alt="" />
-            <li class="side-li">
-              <a href="#clan" style="">UCOE Clan</a>
-            </li>
-            <img class="nav-svg" src="static\svg\end.svg" alt="" />
-          </ul> -->
+              <img class="nav-svg" src="static\svg\start.svg" alt="" />
+              <li class="side-li">
+                <a href="#webinar" class="active" style="">Webinars</a>
+              </li>
+              <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+              <li class="side-li">
+                <a href="#events" style="">Upcoming Events</a>
+              </li>
+              <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+              <li class="side-li">
+                <a href="#news" style="">News Feed</a>
+              </li>
+              <img class="nav-svg" src="static\svg\mid.svg" alt="" />
+              <li class="side-li">
+                <a href="#clan" style="">UCOE Clan</a>
+              </li>
+              <img class="nav-svg" src="static\svg\end.svg" alt="" />
+            </ul> -->
             <ul class="site-menu side js-clone-nav mr-auto d-none d-lg-block">
               <img class="nav-svg" src="..\static\svg\start1.svg" alt="" />
               <li>
@@ -43,15 +43,15 @@
                 <a href="/webinar"><span class="n-link">Webinar</span></a>
 
                 <!-- <ul class="dropdown arrow-top">
-                  <li><a href="comps">Computer Engineering</a></li>
-                  <li><a href="#">Information Technology</a></li>
-                  <li><a href="#">Civil Engineering</a></li>
-                  <li><a href="#">Electronics</a></li>
-                  <li><a href="#">Electronics & Telecommunication</a></li>
-                </ul> -->
+                    <li><a href="comps">Computer Engineering</a></li>
+                    <li><a href="#">Information Technology</a></li>
+                    <li><a href="#">Civil Engineering</a></li>
+                    <li><a href="#">Electronics</a></li>
+                    <li><a href="#">Electronics & Telecommunication</a></li>
+                  </ul> -->
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
-              <li>
+              <li class="active">
                 <a href="/events"><span class="n-link">Upcoming Events</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
@@ -60,7 +60,7 @@
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
 
-              <li class="active">
+              <li>
                 <a href="/newsf"><span class="n-link">News Feed</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
@@ -70,6 +70,11 @@
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
                 <a href="/contact"><span class="n-link">Contact Us</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="http://www.universalcollegeofengineering.edu.in/contact-us/virtual-campus/"
+                  target="_blank"><span class="n-link">Virtual Tour</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
@@ -104,7 +109,7 @@
     </div>
   </header>
 </div>
-<div style="outline: none; background-color: #ff6f69; height: 100vh;" tabindex="-1" role="group">
+<div style="outline: none; background-color: #FFC115; height: 100vh;" tabindex="-1" role="group">
   <!-- <div
   style="outline: none; background-color: #9da2f4; height: 100vh;"
   tabindex="-1"
@@ -120,7 +125,7 @@
       background: none;
       background-size: contain;
       background-position: center top;
-      background-color: #ff6f69;
+      background-color: #FFC115;
       height: 37vh;
       padding: 0;
     ">
@@ -161,7 +166,7 @@
                           font-weight: bolder;
                           color: #000000;
                         ">
-                        NewsFeed.
+                        Contact Us
                       </div>
                     </div>
                   </div>
@@ -173,88 +178,60 @@
       </div>
     </div>
   </div>
-  <div class="Container-sc-1e7uphc-0 bKAWec bKAWec1 jghleH" style="width: 100%; height: 64vh; padding: 0;">
+  <div class="Container-sc-1e7uphc-0 bKAWec bKAWec1 jghleH" style="width: 100%; height: 95vh; padding: 0;">
     <div id="eve" class="event-wrapper" style="
         width: 100%;
-        height: 64vh;
-        background: #f4f4f4;
+        height: auto;
+        background: #ffffff;
         margin-top: 0%;
         padding: 0;
         padding: 0 2rem;
         text-align: center;
         border-radius: 1.75rem 1.75rem 0 0;
       ">
-      <div id="newsletter" class="tab-pane fade in active show" style="margin-top: 25px; margin-bottom: 18px;">
-        {% for news in allnews|reverse|slice(3) %}
-        <div class="issue" style="padding: 0;">
-          <img id="demo{{news[0].val().headline}}" class="collapse in partners--logo sb-avatar__image"
-            src="{{news[0].val().imagelink}}" alt="Default" style="
-              max-width: 100%;
-              margin-bottom: 15px;
-              border-radius: inherit;
-            " />
+      <div class="tab-content" style="
+          padding: 0;
+          background: #ffffff;
+          text-align: center;
+          margin-top: 5vh;
+        ">
+        <form autocomplete="off" method="POST" style="padding: 0; background-color: transparent;">
+          <h1 class="log-title" style="">
+            Enquiry Form
+          </h1>
+          <div class="input-container" style="border-radius: 30px;">
+            <i class="far fa-user-circle fa-lg icon" style="border-radius: 30px 0 0 30px;"></i>
+            <input class="input-field" type="text" id="name" name="name" placeholder="Name" required="required"
+              style="border-radius: 0 30px 30px 0;" />
+          </div>
+          <div class="input-container" style="border-radius: 30px;">
+            <i class="far fa-envelope fa-lg icon" style="border-radius: 30px 0 0 30px;"></i>
+            <input class="input-field" id="email" name="email" placeholder="Email" style="border-radius: 0 30px 30px 0;"
+              required="required" />
+          </div>
+          <div class="input-container" style="border-radius: 30px;">
+            <i class="far fa-comment-alt fa-lg icon" style="border-radius: 30px 0 0 30px;"></i>
+            <textarea class="input-field" id="message" name="message" style="border-radius: 0 30px 30px 0;"
+              placeholder="Message..." required="required"></textarea>
+          </div>
 
-          <h3 class="news-title">{{news[0].val().headline}}</h3>
-          <p id="demo{{news[0].val().headline}}" class="collapse in news-content">
-            {{news[0].val().story}}
-          </p>
-          <button class="butt" data-toggle="collapse" data-target="#demo{{news[0].val().headline}}"
-            style="all: unset; width: 100%;">
-            <h5 style="
-                text-align: end;
-                font-size: 0.9rem;
-                font-weight: 200;
-                padding-right: 20px;
-              ">
-              Read more
-            </h5>
+          <button type="submit" name="submit" value="Send Message" style="
+              border-radius: 20px;
+              border: 1px solid #647dee;
+              color: #647dee;
+              margin-bottom: 10px;
+            ">
+            Send Message
           </button>
-        </div>
-        {% endfor %}
-
-        <span onclick="viewmore()">View All</span>
+        </form>
+        <p style="font-size: 20px;">For more Information Visit :</p>
+        <a href="https://universalcollegeofengineering.edu.in/contact-us/" target="_blank"
+          style="font-size: 12px; color:blue !important">https://universalcollegeofengineering.edu.in/contact-us/</a>
       </div>
-      <div id="newsletterall" class="tab-pane fade in active"
-        style="margin-top: 25px; display: none; margin-bottom: 18px;">
-        {% for news in allnews|reverse %}
-        <div class="issue" style="padding: 0;">
-          <img id="demo{{news.val().headline}}" class="collapse in partners--logo sb-avatar__image"
-            src="{{news.val().imagelink}}" alt="Default" style="
-              max-width: 100%;
-              margin-bottom: 15px;
-              border-radius: inherit;
-            " />
-
-          <h3 class="news-title">{{news.val().headline}}</h3>
-          <p id="demo{{news.val().headline}}" class="collapse in news-content">
-            {{news.val().story}}
-          </p>
-          <button class="butt" data-toggle="collapse" data-target="#demo{{news.val().headline}}"
-            style="all: unset; width: 100%;">
-            <h5 style="
-                text-align: end;
-                font-size: 0.9rem;
-                font-weight: 200;
-                padding-right: 20px;
-              ">
-              Read more
-            </h5>
-          </button>
-        </div>
-        {% endfor %}
-        <!-- <div class="issue">
-          <h3 class="news-title">COFFEE & CODE;</h3>
-          <p class="news-content">
-            Issue 21: April 2020 Edition
-          </p>
-        </div> -->
-        <span onclick="viewless()">View Less</span>
-      </div>
-      <div style="width: 100vw; position: absolute; background: #f4f4f4; left: 0;">
+      <div style="width: 100vw; position: absolute; background: #ffffff; left: 0;">
         <img src="../static/svg/credits.svg" alt="svg" style="position: relative; /* bottom: 0; */ width: 100vw;" />
       </div>
     </div>
   </div>
 </div>
-
 {% endblock content %}

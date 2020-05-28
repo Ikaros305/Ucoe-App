@@ -1,6 +1,6 @@
 {% extends "layout.html" %} {% block content %}
 
-<div class="site-wrap" style="z-index: 20005;">
+<div class="site-wrap" style="z-index: 20005; position: fixed;">
   <div class="site-mobile-menu" style="z-index: 20006;">
     <div class="site-mobile-menu-header">
       <div class="site-mobile-menu-close mt-3">
@@ -14,10 +14,7 @@
     <div class="container" style="max-width: 1340px;">
       <div class="row align-items-center">
         <div class="col-12 col-md-8 d-none d-xl-block">
-          <nav
-            class="site-navigation position-relative text-right"
-            role="navigation"
-          >
+          <nav class="site-navigation position-relative text-right" role="navigation">
             <!-- <ul class="side" style="margin: 20px 0;">
             <img class="nav-svg" src="static\svg\start.svg" alt="" />
             <li class="side-li">
@@ -56,9 +53,7 @@
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="/events"
-                  ><span class="n-link">Upcoming Events</span></a
-                >
+                <a href="/events"><span class="n-link">Upcoming Events</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
@@ -71,23 +66,20 @@
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="/courses"
-                  ><span class="n-link">Online Courses</span></a
-                >
+                <a href="/courses"><span class="n-link">Online Courses</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a
-                  href="http://www.universalcollegeofengineering.edu.in/contact-us/virtual-campus/"
-                  target="_blank"
-                  ><span class="n-link">Virtual Tour</span></a
-                >
+                <a href="/contact"><span class="n-link">Contact Us</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="http://unibotbeta.000webhostapp.com" target="_blank"
-                  ><span class="n-link">ChatBot</span></a
-                >
+                <a href="http://www.universalcollegeofengineering.edu.in/contact-us/virtual-campus/"
+                  target="_blank"><span class="n-link">Virtual Tour</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="http://unibotbeta.000webhostapp.com" target="_blank"><span class="n-link">ChatBot</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
@@ -104,24 +96,17 @@
           </nav>
         </div>
 
-        <div
-          class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
-          style="position: relative; top: 0; margin-left: 10px;"
-        >
-          <a href="#" class="site-menu-toggle js-menu-toggle text-black"
-            ><span class="icon-menu h3" style="font-size: 45px;"></span
-          ></a>
+        <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+          style="position: relative; top: 0; margin-left: 10px;">
+          <a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"
+              style="font-size: 45px;"></span></a>
         </div>
       </div>
     </div>
   </header>
 </div>
 
-<div
-  data-aos="fade-in"
-  class="aos-init aos-animate"
-  style="position: absolute; width: 100%;"
->
+<div data-aos="fade-in" class="aos-init aos-animate" style="position: absolute; width: 100%;">
   <div class="Container-sc-1e7uphc-0 bKAWec" style="margin-top: 190px;">
     <div class="head-pat">
       <div class="partners" style="width: 100%;">
@@ -132,42 +117,27 @@
               <div class="column">
                 <div class="box interview-grid-item has-text-centered">
                   <div class="interview-grid-item__avatar">
-                    <div
-                      class="partners--logo sb-avatar sb-avatar--src"
-                      style="
+                    <div class="partners--logo sb-avatar sb-avatar--src" style="
                         display: inline-block;
                         vertical-align: middle;
                         border-radius: 100%;
                         font-family: Helvetica, Arial, sans-serif;
-                      "
-                    >
-                      <img
-                        class="partners--logo sb-avatar__image"
-                        src="{{news.val().imagelink}}"
-                        alt="Default"
-                        style="max-width: 100%;"
-                      />
+                      ">
+                      <img class="partners--logo sb-avatar__image" src="{{news.val().imagelink}}" alt="Default"
+                        style="max-width: 100%;" />
                     </div>
                   </div>
                   <div class="partners-desc">
                     <p class="title is-5">{{news.val().headline}}</p>
                   </div>
                   <div class="partners-desc">
-                    <p
-                      id="demo{{news.val().headline}}"
-                      class="collapse in title is-6"
-                      style=""
-                    >
+                    <p id="demo{{news.val().headline}}" class="collapse in title is-6" style="">
                       {{news.val().story}}
                     </p>
                   </div>
 
-                  <button
-                    class="butt"
-                    data-toggle="collapse"
-                    data-target="#demo{{news.val().headline}}"
-                    style="all: unset;"
-                  >
+                  <button class="butt" data-toggle="collapse" data-target="#demo{{news.val().headline}}"
+                    style="all: unset;">
                     <h5 style="text-align: center;">view more</h5>
                   </button>
                 </div>

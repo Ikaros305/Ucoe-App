@@ -1,5 +1,5 @@
 {% extends "layout.html" %} {% block content %}
-<div class="site-wrap" style="z-index: 20005;">
+<div class="site-wrap" style="z-index: 20005; position: fixed;">
   <div class="site-mobile-menu" style="z-index: 20006;">
     <div class="site-mobile-menu-header">
       <div class="site-mobile-menu-close mt-3">
@@ -13,10 +13,7 @@
     <div class="container" style="max-width: 1340px;">
       <div class="row align-items-center">
         <div class="col-12 col-md-8 d-none d-xl-block">
-          <nav
-            class="site-navigation position-relative text-right"
-            role="navigation"
-          >
+          <nav class="site-navigation position-relative text-right" role="navigation">
             <!-- <ul class="side" style="margin: 20px 0;">
             <img class="nav-svg" src="static\svg\start.svg" alt="" />
             <li class="side-li">
@@ -55,9 +52,7 @@
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="/events"
-                  ><span class="n-link">Upcoming Events</span></a
-                >
+                <a href="/events"><span class="n-link">Upcoming Events</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
@@ -70,23 +65,20 @@
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="/courses"
-                  ><span class="n-link">Online Courses</span></a
-                >
+                <a href="/courses"><span class="n-link">Online Courses</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a
-                  href="http://www.universalcollegeofengineering.edu.in/contact-us/virtual-campus/"
-                  target="_blank"
-                  ><span class="n-link">Virtual Tour</span></a
-                >
+                <a href="/contact"><span class="n-link">Contact Us</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="http://unibotbeta.000webhostapp.com" target="_blank"
-                  ><span class="n-link">ChatBot</span></a
-                >
+                <a href="http://www.universalcollegeofengineering.edu.in/contact-us/virtual-campus/"
+                  target="_blank"><span class="n-link">Virtual Tour</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="http://unibotbeta.000webhostapp.com" target="_blank"><span class="n-link">ChatBot</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li class="active">
@@ -103,48 +95,25 @@
           </nav>
         </div>
 
-        <div
-          class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
-          style="position: relative; top: 0; margin-left: 10px;"
-        >
-          <a href="#" class="site-menu-toggle js-menu-toggle text-black"
-            ><span class="icon-menu h3" style="font-size: 45px;"></span
-          ></a>
+        <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+          style="position: relative; top: 0; margin-left: 10px;">
+          <a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"
+              style="font-size: 45px;"></span></a>
         </div>
       </div>
     </div>
   </header>
 </div>
 {% if depart == "COMPUTER ENGINEERING" %}
-<div
-  style="outline: none; background-color: #9ea3f5; height: 100vh;"
-  tabindex="-1"
-  role="group"
->
+<div style="outline: none; background-color: #9ea3f5; height: 100vh;" tabindex="-1" role="group">
   {% elif depart == "INFORMATION TECHNOLOGY" %}
-  <div
-    style="outline: none; background-color: #ff9aa2; height: 100vh;"
-    tabindex="-1"
-    role="group"
-  >
+  <div style="outline: none; background-color: #ff9aa2; height: 100vh;" tabindex="-1" role="group">
     {% elif depart == "CIVIL ENGINEERING" %}
-    <div
-      style="outline: none; background-color: #c3e4fd; height: 100vh;"
-      tabindex="-1"
-      role="group"
-    >
+    <div style="outline: none; background-color: #c3e4fd; height: 100vh;" tabindex="-1" role="group">
       {% elif depart == "ELECTRONICS" %}
-      <div
-        style="outline: none; background-color: #e2f0cb; height: 100vh;"
-        tabindex="-1"
-        role="group"
-      >
+      <div style="outline: none; background-color: #e2f0cb; height: 100vh;" tabindex="-1" role="group">
         {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
-        <div
-          style="outline: none; background-color: #84b4c8; height: 100vh;"
-          tabindex="-1"
-          role="group"
-        >
+        <div style="outline: none; background-color: #84b4c8; height: 100vh;" tabindex="-1" role="group">
           {% endif %}
           <!-- <div
   style="outline: none; background-color: #9da2f4; height: 100vh;"
@@ -152,65 +121,50 @@
   role="group"
 > -->
           {% if depart == "COMPUTER ENGINEERING" %}
-          <div
-            class="clip-event-training"
-            style="
+          <div class="clip-event-training" style="
               background: url(static/svg/CSVector.svg) no-repeat;
               background-size: contain;
               background-position: center top;
               background-color: #9ea3f5;
               height: 41vh;
               padding: 0;
-            "
-          >
+            ">
             {% elif depart == "INFORMATION TECHNOLOGY" %}
-            <div
-              class="clip-event-training"
-              style="
+            <div class="clip-event-training" style="
                 background: url(static/svg/ITVector.svg) no-repeat;
                 background-size: contain;
                 background-position: 50% 70%;
                 background-color: #ff9aa2;
                 height: 41vh;
                 padding: 0;
-              "
-            >
+              ">
               {% elif depart == "CIVIL ENGINEERING" %}
-              <div
-                class="clip-event-training"
-                style="
+              <div class="clip-event-training" style="
                   background: url(static/svg/CIVILVector.svg) no-repeat;
                   background-size: contain;
                   background-position: center 70%;
                   background-color: #c3e4fd;
                   height: 41vh;
                   padding: 0;
-                "
-              >
+                ">
                 {% elif depart == "ELECTRONICS" %}
-                <div
-                  class="clip-event-training"
-                  style="
+                <div class="clip-event-training" style="
                     background: url(static/svg/ETRXVector.svg) no-repeat;
                     background-size: contain;
                     background-position: center bottom;
                     background-color: #e2f0cb;
                     height: 41vh;
                     padding: 0;
-                  "
-                >
+                  ">
                   {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
-                  <div
-                    class="clip-event-training"
-                    style="
+                  <div class="clip-event-training" style="
                       background: url(static/svg/EXTCVector.svg) no-repeat;
                       background-size: contain;
                       background-position: center bottom;
                       background-color: #84b4c8;
                       height: 41vh;
                       padding: 0;
-                    "
-                  >
+                    ">
                     {% endif %}
                     <!-- {% if depart == "COMPUTER ENGINEERING" %} {%
                     elif depart == "INFORMATION TECHNOLOGY" %} {% elif depart ==
@@ -228,41 +182,28 @@
                 padding: 0;
               "
             > -->
-                    <div
-                      class="Container-sc-1e7uphc-0 bKAWec jghleH"
-                      style="
+                    <div class="Container-sc-1e7uphc-0 bKAWec jghleH" style="
                         width: 100%;
                         padding: 5rem 0px;
                         background: #fafafa55;
-                      "
-                    >
+                      ">
                       <div class="head-training">
                         {% if depart == "COMPUTER ENGINEERING" %}
                         <img
                           src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=128"
-                          alt=""
-                          class="initial"
-                        />{% elif depart == "INFORMATION TECHNOLOGY" %}
+                          alt="" class="initial" />{% elif depart == "INFORMATION TECHNOLOGY" %}
                         <img
                           src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=128"
-                          alt=""
-                          class="initial"
-                        />{% elif depart == "CIVIL ENGINEERING" %}<img
+                          alt="" class="initial" />{% elif depart == "CIVIL ENGINEERING" %}<img
                           src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=128"
-                          alt=""
-                          class="initial"
-                        />
+                          alt="" class="initial" />
                         {% elif depart == "ELECTRONICS" %}<img
                           src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=128"
-                          alt=""
-                          class="initial"
-                        />
+                          alt="" class="initial" />
                         {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
                         <img
                           src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=128"
-                          alt=""
-                          class="initial"
-                        />{% endif %}
+                          alt="" class="initial" />{% endif %}
 
                         <div class="training-inner">
                           <div class="item hero-training" style="padding: 0;">
@@ -271,15 +212,13 @@
                                 <div class="col-xs-12 hero-wrapper">
                                   <div class="module">
                                     <div class="module-title-wraper">
-                                      <div
-                                        style="
+                                      <div style="
                                           color: #000000;
                                           font-size: 2.4rem;
                                           font-weight: 400;
                                           text-shadow: 0px 6px 4px
                                             rgba(255, 255, 255, 0.59);
-                                        "
-                                      >
+                                        ">
                                         {{first_detail}} {{last_detail}}
                                       </div>
                                     </div>
@@ -292,71 +231,46 @@
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="Container-sc-1e7uphc-0 bKAWec bKAWec1 jghleH"
-                    style="width: 100%; height: 59vh; padding: 0;"
-                  >
-                    <div
-                      class="event-wrapper"
-                      style="
+                  <div class="Container-sc-1e7uphc-0 bKAWec bKAWec1 jghleH"
+                    style="width: 100%; height: 59vh; padding: 0;">
+                    <div class="event-wrapper" style="
                         width: 100%;
                         height: 59vh;
                         background: #f4f4f4;
                         margin-top: 0px;
                         padding: 0;
                         border-radius: 1rem 1rem 0 0;
-                      "
-                    >
-                      <ul
-                        class="nav nav-pills nav-fill"
-                        style="
+                      ">
+                      <ul class="nav nav-pills nav-fill" style="
                           border-bottom: #979797 solid 0.1px;
                           border-radius: 1rem 1rem 0 0;
                           background: white;
                           padding: 0 10px;
-                        "
-                      >
+                        ">
                         <li class="nav-item">
-                          <a
-                            data-toggle="pill"
-                            href="#newsletter"
-                            style="margin-top: 15px; margin-bottom: 15px;"
-                            class="anchor"
-                            >Profile</a
-                          >
+                          <a data-toggle="pill" href="#newsletter" style="margin-top: 15px; margin-bottom: 15px;"
+                            class="anchor">Profile</a>
                         </li>
                         <li class="nav-item">
-                          <a
-                            data-toggle="pill"
-                            href="#updates"
-                            class="anchor active show"
-                            style="margin-top: 15px; margin-bottom: 15px;"
-                            >Updates</a
-                          >
+                          <a data-toggle="pill" href="#updates" class="anchor active show"
+                            style="margin-top: 15px; margin-bottom: 15px;">Updates</a>
                         </li>
                       </ul>
 
-                      <div
-                        class="tab-content"
-                        style="
+                      <div class="tab-content" style="
                           padding: 0 1.8rem;
                           background: #f4f4f4;
                           text-align: center;
-                        "
-                      >
-                        <div
-                          id="updates"
-                          class="tab-pane fade in active show"
-                          style="margin-top: 25px; margin-bottom: 18px;"
-                        >
+                        ">
+                        <div id="updates" class="tab-pane fade in active show"
+                          style="margin-top: 25px; margin-bottom: 18px;">
                           {% if depart == "COMPUTER ENGINEERING" %}
                           <div class="issue">
                             <p style="font-size: 1.25rem;">
                               Check out CSnation!
                             </p>
                             <a href="/home" style="all: unset;">
-                              <span>Check out ></span></a
-                            >
+                              <span>Check out ></span></a>
                           </div>
                           {% elif depart == "INFORMATION TECHNOLOGY" %}
                           <div class="issue">
@@ -364,8 +278,7 @@
                               Check out IT Tribe!
                             </p>
                             <a href="/home" style="all: unset;">
-                              <span>Check out ></span></a
-                            >
+                              <span>Check out ></span></a>
                           </div>
                           {% elif depart == "CIVIL ENGINEERING" %}
                           <div class="issue">
@@ -373,8 +286,7 @@
                               Check out Civilian!
                             </p>
                             <a href="/home" style="all: unset;">
-                              <span>Check out ></span></a
-                            >
+                              <span>Check out ></span></a>
                           </div>
                           {% elif depart == "ELECTRONICS" %}
                           <div class="issue">
@@ -382,8 +294,7 @@
                               Check out Etrx Sept!
                             </p>
                             <a href="/home" style="all: unset;">
-                              <span>Check out ></span></a
-                            >
+                              <span>Check out ></span></a>
                           </div>
                           {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
                           <div class="issue">
@@ -391,8 +302,7 @@
                               Check out Extc Crew!
                             </p>
                             <a href="/home" style="all: unset;">
-                              <span>Check out ></span></a
-                            >
+                              <span>Check out ></span></a>
                           </div>
                           {% endif %}
                           <div class="issue">
@@ -400,15 +310,10 @@
                               Check out the Upcoming Events
                             </p>
                             <a href="/events" style="all: unset;">
-                              <span>Check out ></span></a
-                            >
+                              <span>Check out ></span></a>
                           </div>
                         </div>
-                        <div
-                          id="newsletter"
-                          class="tab-pane fade"
-                          style="margin-top: 25px;"
-                        >
+                        <div id="newsletter" class="tab-pane fade" style="margin-top: 25px;">
                           <!-- <div class="issue"> -->
                           <h3 class="profile-title">Department</h3>
                           <p class="profile-issue">{{depart}}</p>

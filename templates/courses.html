@@ -1,5 +1,5 @@
 {% extends "layout.html" %} {% block content %}
-<div class="site-wrap" style="z-index: 20005;">
+<div class="site-wrap" style="z-index: 20005; position: fixed;">
   <div class="site-mobile-menu" style="z-index: 20006;">
     <div class="site-mobile-menu-header">
       <div class="site-mobile-menu-close mt-3">
@@ -13,10 +13,7 @@
     <div class="container" style="max-width: 1340px;">
       <div class="row align-items-center">
         <div class="col-12 col-md-8 d-none d-xl-block">
-          <nav
-            class="site-navigation position-relative text-right"
-            role="navigation"
-          >
+          <nav class="site-navigation position-relative text-right" role="navigation">
             <!-- <ul class="side" style="margin: 20px 0;">
             <img class="nav-svg" src="static\svg\start.svg" alt="" />
             <li class="side-li">
@@ -55,9 +52,7 @@
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="/events"
-                  ><span class="n-link">Upcoming Events</span></a
-                >
+                <a href="/events"><span class="n-link">Upcoming Events</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
@@ -70,23 +65,20 @@
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li class="active">
-                <a href="/courses"
-                  ><span class="n-link">Online Courses</span></a
-                >
+                <a href="/courses"><span class="n-link">Online Courses</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a
-                  href="http://www.universalcollegeofengineering.edu.in/contact-us/virtual-campus/"
-                  target="_blank"
-                  ><span class="n-link">Virtual Tour</span></a
-                >
+                <a href="/contact"><span class="n-link">Contact Us</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
-                <a href="http://unibotbeta.000webhostapp.com" target="_blank"
-                  ><span class="n-link">ChatBot</span></a
-                >
+                <a href="http://www.universalcollegeofengineering.edu.in/contact-us/virtual-campus/"
+                  target="_blank"><span class="n-link">Virtual Tour</span></a>
+              </li>
+              <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
+              <li>
+                <a href="http://unibotbeta.000webhostapp.com" target="_blank"><span class="n-link">ChatBot</span></a>
               </li>
               <img class="nav-svg" src="..\static\svg\b-mid.svg" alt="" />
               <li>
@@ -103,24 +95,17 @@
           </nav>
         </div>
 
-        <div
-          class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
-          style="position: relative; top: 0; margin-left: 10px;"
-        >
-          <a href="#" class="site-menu-toggle js-menu-toggle text-black"
-            ><span class="icon-menu h3" style="font-size: 45px;"></span
-          ></a>
+        <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+          style="position: relative; top: 0; margin-left: 10px;">
+          <a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"
+              style="font-size: 45px;"></span></a>
         </div>
       </div>
     </div>
   </header>
 </div>
 
-<div
-  style="outline: none; background-color: #70a1d7; height: 100vh;"
-  tabindex="-1"
-  role="group"
->
+<div style="outline: none; background-color: #70a1d7; height: 100vh;" tabindex="-1" role="group">
   <!-- <div
   style="outline: none; background-color: #9da2f4; height: 100vh;"
   tabindex="-1"
@@ -132,54 +117,38 @@
                     "CIVIL ENGINEERING" %} {% elif depart == "ELECTRONICS" %} {%
                     elif depart == "ELECTRONICS & TELECOMMUNICATION" %} {% endif
                     %} -->
-  <div
-    class="clip-event-training"
-    style="
+  <div class="clip-event-training" style="
       background: none;
       background-size: contain;
       background-position: center top;
       background-color: #70a1d7;
       height: 37vh;
       padding: 0;
-    "
-  >
-    <div
-      class="Container-sc-1e7uphc-0 bKAWec jghleH"
-      style="width: 100%; padding: 4rem 0px;"
-    >
+    ">
+    <div class="Container-sc-1e7uphc-0 bKAWec jghleH" style="width: 100%; padding: 4rem 0px;">
       {% if depart == "COMPUTER ENGINEERING" %}
       <a href="/profile">
         <img
           src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
-          alt=""
-          class="initial2" /></a
-      >{% elif depart == "INFORMATION TECHNOLOGY" %}
+          alt="" class="initial2" /></a>{% elif depart == "INFORMATION TECHNOLOGY" %}
       <a href="/profile">
         <img
           src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
-          alt=""
-          class="initial2" /></a
-      >{% elif depart == "CIVIL ENGINEERING" %}
+          alt="" class="initial2" /></a>{% elif depart == "CIVIL ENGINEERING" %}
       <a href="/profile">
         <img
           src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
-          alt=""
-          class="initial2"
-      /></a>
+          alt="" class="initial2" /></a>
       {% elif depart == "ELECTRONICS" %}
       <a href="/profile">
         <img
           src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
-          alt=""
-          class="initial2"
-      /></a>
+          alt="" class="initial2" /></a>
       {% elif depart == "ELECTRONICS & TELECOMMUNICATION" %}
       <a href="/profile">
         <img
           src="https://ui-avatars.com/api/?name= {{first_detail}}+{{last_detail}}&rounded=true&background=9ea3f5&color=fff&size=40"
-          alt=""
-          class="initial2" /></a
-      >{% endif %}
+          alt="" class="initial2" /></a>{% endif %}
       <div class="head-training">
         <div class="training-inner">
           <div class="item hero-training">
@@ -188,13 +157,11 @@
                 <div class="col-xs-12 hero-wrapper">
                   <div class="module">
                     <div class="module-title-wraper">
-                      <div
-                        style="
+                      <div style="
                           font-size: 67px;
                           font-weight: bolder;
                           color: #000000;
-                        "
-                      >
+                        ">
                         Courses.
                       </div>
                     </div>
@@ -207,29 +174,19 @@
       </div>
     </div>
   </div>
-  <div
-    class="Container-sc-1e7uphc-0 bKAWec bKAWec1 jghleH"
-    style="width: 100%; /*height: 63vh;*/ padding: 0;"
-  >
-    <div
-      id="eve"
-      class="event-wrapper"
-      style="
+  <div class="Container-sc-1e7uphc-0 bKAWec bKAWec1 jghleH" style="width: 100%; height: 64vh; padding: 0;">
+    <div id="eve" class="event-wrapper" style="
         width: 100%;
-        height: 63vh;
+        height: 64vh;
         background: #f4f4f4;
         margin-top: 0%;
         padding: 0;
         padding: 0 2rem;
         text-align: center;
         border-radius: 1.75rem 1.75rem 0 0;
-      "
-    >
-      <div
-        id="newsletterall"
-        class="tab-pane fade in active show"
-        style="margin-top: 25px; display: none; margin-bottom: 18px;"
-      >
+      ">
+      <div id="newsletterall" class="tab-pane fade in active show"
+        style="margin-top: 25px; display: none; margin-bottom: 18px;">
         {% for query in querys|reverse %}
         <div class="issue">
           <h3 class="news-title">{{query.val().name}}</h3>
@@ -238,18 +195,15 @@
           </p>
           <a href=" {{query.val().link}}" target="_blank" style="all: unset;">
             <button class="butt" style="all: unset; width: 100%;">
-              <h5
-                style="
+              <h5 style="
                   text-align: end;
                   font-size: 0.9rem;
                   font-weight: 200;
                   padding-right: 20px;
-                "
-              >
+                ">
                 Enroll Now
               </h5>
-            </button></a
-          >
+            </button></a>
         </div>
         {% endfor %}
         <!-- <div class="issue">
@@ -259,6 +213,9 @@
           </p>
         </div> -->
         <!-- <span>View More</span> -->
+      </div>
+      <div style="width: 100vw; position: absolute; background: #f4f4f4; left: 0;">
+        <img src="../static/svg/credits.svg" alt="svg" style="position: relative; /* bottom: 0; */ width: 100vw;" />
       </div>
     </div>
   </div>

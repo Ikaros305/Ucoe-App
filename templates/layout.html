@@ -1,553 +1,502 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>UCoE</title>
-    <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      href="{{ url_for('static', filename='/img/icon/icon192x192.png') }}"
-    />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="note" content="environment=development" />
-    <meta name="theme-color" content="#3367D6" />
-    <!-- Web app manifest -->
-    <link
-      rel="manifest"
-      href="{{ url_for('static', filename='manifest.json') }}"
-    />
 
-    <!-- iOS -->
-    <link
-      rel="apple-touch-icon"
-      href="{{ url_for('static', filename='/img/icon/icon192x192.png') }}"
-    />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
+<head>
+  <title>UCoE</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="{{ url_for('static', filename='/img/icon/icon192x192.png') }}" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="note" content="environment=development" />
+  <meta name="theme-color" content="#3367D6" />
+  <!-- Web app manifest -->
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}" />
 
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="../static/assets/css/poppins.css" />
-    <link rel="stylesheet" href="../static/assets/css/all.min.css" />
-    <link rel="stylesheet" href="../static/assets/css/demo.css" />
-    <link rel="stylesheet" href="../static/assets/css/main2.css" />
-    <link rel="stylesheet" href="../static/assets/css/asa.css" />
-    <link rel="stylesheet" href="../static/assets/css/feed.css" />
-    <link rel="stylesheet" href="../static/assets/css/depart.css" />
-    <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/assets/css/swiper.min.css" />
-    <link rel="stylesheet" href="../static/assets/css/style.css" />
-    <link rel="stylesheet" href="../static/assets/css/style1.css" />
-    <link rel="stylesheet" href="../static/assets/css/chosen.min.css" />
-    <link
-      rel="stylesheet"
-      href="../static/assets/css/jquery.mCustomScrollbar.min.css"
-    />
-    <!-- <link
-      href="https://fonts.googleapis.com/css?family=Poppins"
-      rel="stylesheet"
-    /> -->
-    <!-- <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    /> -->
-    <!-- <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/webfonts/fa-solid-900.svg"
-      rel="stylesheet"
-    /> -->
+  <!-- iOS -->
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='/img/icon/icon192x192.png') }}" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
 
-    <!-- <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-      rel="stylesheet"
-    /> -->
 
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    /> -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/regular.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/regular.min.js"
-    /> -->
+  <link rel="stylesheet" href="../static/assets/css/bootstrap1.min.css" />
+  <link rel="stylesheet" href="../static/assets/css/bootstrap2.min.css" />
+  <link rel="stylesheet" href="../static/assets/css/poppins.css" />
+  <link rel="stylesheet" href="../static/assets/css/all.min.css" />
+  <link rel="stylesheet" href="../static/assets/css/demo.css" />
+  <link rel="stylesheet" href="../static/assets/css/main2.css" />
+  <link rel="stylesheet" href="../static/assets/css/feed.css" />
+  <link rel="stylesheet" href="../static/assets/css/depart.css" />
+  <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../static/assets/css/swiper.min.css" />
+  <link rel="stylesheet" href="../static/assets/css/style.css" />
+  <link rel="stylesheet" href="../static/assets/css/style1.css" />
+  <link rel="stylesheet" href="../static/assets/css/chosen.min.css" />
+  <link rel="stylesheet" href="../static/assets/css/jquery.mCustomScrollbar.min.css" />
 
-    <!-- <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    /> -->
-    <!-- <link rel="manifest" href="static\manifest.json" /> -->
-
-    <!-- <script>
+  <script>
+    function playVideo() {
+      // document.getElementById("slide").classList.toggle("close");
       document.getElementById("myVideo").play();
-      document.getElementById("slide").click(function () {
-        document.getElementById("myVideo").pause();
-      });
-    </script> -->
-    <script>
-      function playVideo() {
-        // document.getElementById("slide").classList.toggle("close");
-        document.getElementById("myVideo").play();
-        document.getElementById("myVideo").muted = false;
-        if (document.getElementById("myVideo").requestFullscreen) {
-          document.getElementById("myVideo").requestFullscreen();
-        } else if (document.getElementById("myVideo").mozRequestFullScreen) {
-          document.getElementById("myVideo").mozRequestFullScreen();
-        } else if (document.getElementById("myVideo").webkitRequestFullscreen) {
-          document.getElementById("myVideo").webkitRequestFullscreen();
-        } else if (document.getElementById("myVideo").msRequestFullscreen) {
-          document.getElementById("myVideo").msRequestFullscreen();
-        }
-        //document.getElementById("myVideo").muted = false;
+      document.getElementById("myVideo").muted = false;
+      if (document.getElementById("myVideo").requestFullscreen) {
+        document.getElementById("myVideo").requestFullscreen();
+      } else if (document.getElementById("myVideo").mozRequestFullScreen) {
+        document.getElementById("myVideo").mozRequestFullScreen();
+      } else if (document.getElementById("myVideo").webkitRequestFullscreen) {
+        document.getElementById("myVideo").webkitRequestFullscreen();
+      } else if (document.getElementById("myVideo").msRequestFullscreen) {
+        document.getElementById("myVideo").msRequestFullscreen();
       }
-      function stopVideo() {
-        document.getElementById("slide").classList.toggle("close");
-        document.getElementById("myVideo").pause();
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
-          document.webkitExitFullscreen();
-        }
+      //document.getElementById("myVideo").muted = false;
+    }
+    function stopVideo() {
+      document.getElementById("slide").classList.toggle("close");
+      document.getElementById("myVideo").pause();
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
       }
-    </script>
-  </head>
+    }
+  </script>
+  <script>
+    window.oncontextmenu = function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      return false;
+    };
+  </script>
+  <!-- <script>
+    function absorbEvent_(event) {
+      var e = event || window.event;
+      e.preventDefault && e.preventDefault();
+      e.stopPropagation && e.stopPropagation();
+      e.cancelBubble = true;
+      e.returnValue = false;
+      return false;
+    }
 
-  <body
-    class="bod"
-    style="
+    function preventLongPressMenu(node) {
+      node.ontouchstart = absorbEvent_;
+      node.ontouchmove = absorbEvent_;
+      node.ontouchend = absorbEvent_;
+      node.ontouchcancel = absorbEvent_;
+    }
+
+    function init() {
+      preventLongPressMenu(document.getElementById('body'));
+    }
+  </script> -->
+</head>
+
+<!-- <body id="body" class="bod" onload="init()" style=" -->
+
+<body id="body" class="bod" onload="init()" style="
       min-width: 320px;
       min-height: 100vh;
       line-height: 1;
       word-wrap: break-word;
 
       background-color: #f7f7f7;
-    "
-  >
-    {% block content %}{% endblock %}
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("service-worker.js")
-          .then(function (registration) {
-            console.log("Service Worker Registered!");
-            return registration;
-          })
-          .catch(function (err) {
-            console.error("Unable to register service worker.", err);
-          });
-      }
-    </script>
-    <!-- Scripts -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    <script src="../static/assets/js/jquery.min.js"></script>
-    <script src="../static/assets/js/jquery.nicescroll.js"></script>
-    <script src="../static/assets/js/skel.min.js"></script>
-    <script src="../static/assets/js/util.js"></script>
-    <script src="../static/assets/js/main.js"></script>
-    <script src="../static/assets/js/state.js"></script>
-    <script src="../static/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="../static/assets/js/aos.js"></script>
-    <script src="../static/assets/js/res.js"></script>
-    <script src="../static/assets/js/swiper.min.js"></script>
-    <script src="../static/assets/js/select.js"></script>
-    <script src="../static/assets/js/bootstrap.min.js"></script>
-
-    <script src="../static/assets/js/jquery-3.2.1.slim.min.js"></script>
-
-    <script src="../static/assets/js/popper.min.js"></script>
-
-    <script>
-      const signInButton = document.getElementById("signUp");
-      const signUpButton = document.getElementById("signIn");
-      const container30 = document.getElementById("container30");
-
-      signInButton.addEventListener("click", () => {
-        container30.classList.add("right-panel-active");
-      });
-
-      signUpButton.addEventListener("click", () => {
-        container30.classList.remove("right-panel-active");
-      });
-    </script>
-    <!-- <script>
-      window.onscroll = function () {
-        scrollFunction();
-      };
-
-      function scrollFunction() {
-        if (
-          document.body.scrollTop > 80 ||
-          document.documentElement.scrollTop > 80
-        ) {
-          document.getElementById("logo").style.display = "none";
-        } else {
-          document.getElementById("logo").style.display = "block";
-        }
-      }
-    </script> -->
-    <!-- <script>
-      $(document).ready(function () {
-        $("#carousel").carousel({
-          interval: 100000,
-          wrap: false,
+    ">
+  {% block content %}{% endblock %}
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("service-worker.js")
+        .then(function (registration) {
+          console.log("Service Worker Registered!");
+          return registration;
+        })
+        .catch(function (err) {
+          console.error("Unable to register service worker.", err);
         });
+    }
+  </script>
+  <!-- Scripts -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <script src="../static/assets/js/jquery.nicescroll.js"></script>
+  <script src="../static/assets/js/skel.min.js"></script>
+  <script src="../static/assets/js/util.js"></script>
+  <script src="../static/assets/js/main.js"></script>
+  <script src="../static/assets/js/state.js"></script>
+  <script src="../static/assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../static/assets/js/aos.js"></script>
+  <script src="../static/assets/js/res.js"></script>
+  <script src="../static/assets/js/swiper.min.js"></script>
+  <script src="../static/assets/js/select.js"></script>
+  <script src="../static/assets/js/bootstrap.min.js"></script>
 
-        $("#carousel").on("slid.bs.carousel", function () {
-          //alert("slid");
-        });
+  <script src="../static/assets/js/jquery.min.js"></script>
+  <script src="../static/assets/js/jquery-3.2.1.slim.min.js"></script>
 
-        $("#carousel").on("slid.bs.carousel", "", function () {
-          var $this = $(this);
+  <script src="../static/assets/js/popper.min.js"></script>
+  <script src="../static/assets/js/extra.min.js"></script>
 
-          $this.children(".carousel-control").show();
+  <script>
+    const signInButton = document.getElementById("signUp");
+    const signUpButton = document.getElementById("signIn");
+    const container30 = document.getElementById("container30");
 
-          if ($(".carousel-inner .carousel-item:first").hasClass("active")) {
-            $this.children(".carousel-control-prev.carousel-control").hide();
-          } else if (
-            $(".carousel-inner .carousel-item:last").hasClass("active")
-          ) {
-            $this.children(".carousel-control-next.carousel-control").hide();
-          }
-        });
-      });
-    </script> -->
+    signInButton.addEventListener("click", () => {
+      container30.classList.add("right-panel-active");
+    });
 
-    <script>
-      $(".trigger").click(function () {
-        $(".slider").toggleClass("close");
-      });
-      $(" .slider").click(function () {
-        $(".slider").toggleClass("close");
-      });
-    </script>
-    <script>
-      const inputField = document.querySelector(".chosen-value");
-      const dropdown = document.querySelector(".value-list");
-      const dropdownArray = [...document.querySelectorAll(".dept-list")];
-      console.log(typeof dropdownArray);
+    signUpButton.addEventListener("click", () => {
+      container30.classList.remove("right-panel-active");
+    });
+  </script>
+
+
+  <script>
+    $(".trigger").click(function () {
+      $(".slider").toggleClass("close");
+    });
+    $(" .slider").click(function () {
+      $(".slider").toggleClass("close");
+    });
+  </script>
+  <script>
+    const inputField = document.querySelector(".chosen-value");
+    const dropdown = document.querySelector(".value-list");
+    const dropdownArray = [...document.querySelectorAll(".dept-list")];
+    console.log(typeof dropdownArray);
+    dropdown.classList.add("open");
+    inputField.focus(); // Demo purposes only
+    let valueArray = [];
+    dropdownArray.forEach((item) => {
+      valueArray.push(item.textContent);
+    });
+
+    const closeDropdown = () => {
+      dropdown.classList.remove("open");
+    };
+
+    inputField.addEventListener("input", () => {
       dropdown.classList.add("open");
-      inputField.focus(); // Demo purposes only
-      let valueArray = [];
-      dropdownArray.forEach((item) => {
-        valueArray.push(item.textContent);
-      });
-
-      const closeDropdown = () => {
-        dropdown.classList.remove("open");
-      };
-
-      inputField.addEventListener("input", () => {
-        dropdown.classList.add("open");
-        let inputValue = inputField.value.toLowerCase();
-        let valueSubstring;
-        if (inputValue.length > 0) {
-          for (let j = 0; j < valueArray.length; j++) {
-            //if (window.CP.shouldStopExecution(0)) break;
-            if (
-              !(
-                inputValue.substring(0, inputValue.length) ===
-                valueArray[j].substring(0, inputValue.length).toLowerCase()
-              )
-            ) {
-              dropdownArray[j].classList.add("closed");
-            } else {
-              dropdownArray[j].classList.remove("closed");
-            }
+      let inputValue = inputField.value.toLowerCase();
+      let valueSubstring;
+      if (inputValue.length > 0) {
+        for (let j = 0; j < valueArray.length; j++) {
+          //if (window.CP.shouldStopExecution(0)) break;
+          if (
+            !(
+              inputValue.substring(0, inputValue.length) ===
+              valueArray[j].substring(0, inputValue.length).toLowerCase()
+            )
+          ) {
+            dropdownArray[j].classList.add("closed");
+          } else {
+            dropdownArray[j].classList.remove("closed");
           }
-          //   window.CP.exitedLoop(0);
-        } else {
-          for (let i = 0; i < dropdownArray.length; i++) {
-            // if (window.CP.shouldStopExecution(1)) break;
-            dropdownArray[i].classList.remove("closed");
-          }
-          // window.CP.exitedLoop(1);
         }
-      });
+        //   window.CP.exitedLoop(0);
+      } else {
+        for (let i = 0; i < dropdownArray.length; i++) {
+          // if (window.CP.shouldStopExecution(1)) break;
+          dropdownArray[i].classList.remove("closed");
+        }
+        // window.CP.exitedLoop(1);
+      }
+    });
 
-      dropdownArray.forEach((item) => {
-        item.addEventListener("click", (evt) => {
-          inputField.value = item.textContent;
-          dropdownArray.forEach((dropdown) => {
-            dropdown.classList.add("closed");
-          });
-        });
-      });
-
-      inputField.addEventListener("focus", () => {
-        inputField.placeholder = "Select";
-        dropdown.classList.add("open");
+    dropdownArray.forEach((item) => {
+      item.addEventListener("click", (evt) => {
+        inputField.value = item.textContent;
         dropdownArray.forEach((dropdown) => {
-          dropdown.classList.remove("closed");
+          dropdown.classList.add("closed");
         });
       });
+    });
 
-      inputField.addEventListener("blur", () => {
-        inputField.placeholder = "Select department";
+    inputField.addEventListener("focus", () => {
+      inputField.placeholder = "Select";
+      dropdown.classList.add("open");
+      dropdownArray.forEach((dropdown) => {
+        dropdown.classList.remove("closed");
+      });
+    });
+
+    inputField.addEventListener("blur", () => {
+      inputField.placeholder = "Select department";
+      dropdown.classList.remove("open");
+    });
+
+    document.addEventListener("click", (evt) => {
+      const isDropdown = dropdown.contains(evt.target);
+      const isInput = inputField.contains(evt.target);
+      if (!isDropdown && !isInput) {
         dropdown.classList.remove("open");
-      });
+      }
+    });
+  </script>
+  <script>
+    const inputField1 = document.querySelector(".chosen-value1");
+    const dropdown1 = document.querySelector(".value-list1");
+    const dropdownArray1 = [...document.querySelectorAll(".city-list")];
+    console.log(typeof dropdownArray1);
+    dropdown1.classList.add("open");
+    inputField1.focus(); // Demo purposes only
+    let valueArray1 = [];
+    dropdownArray1.forEach((item) => {
+      valueArray1.push(item.textContent);
+    });
 
-      document.addEventListener("click", (evt) => {
-        const isDropdown = dropdown.contains(evt.target);
-        const isInput = inputField.contains(evt.target);
-        if (!isDropdown && !isInput) {
-          dropdown.classList.remove("open");
-        }
-      });
-    </script>
-    <script>
-      const inputField1 = document.querySelector(".chosen-value1");
-      const dropdown1 = document.querySelector(".value-list1");
-      const dropdownArray1 = [...document.querySelectorAll(".city-list")];
-      console.log(typeof dropdownArray1);
+    const closeDropdown1 = () => {
+      dropdown1.classList.remove("open");
+    };
+
+    inputField1.addEventListener("input", () => {
       dropdown1.classList.add("open");
-      inputField1.focus(); // Demo purposes only
-      let valueArray1 = [];
-      dropdownArray1.forEach((item) => {
-        valueArray1.push(item.textContent);
-      });
-
-      const closeDropdown1 = () => {
-        dropdown1.classList.remove("open");
-      };
-
-      inputField1.addEventListener("input", () => {
-        dropdown1.classList.add("open");
-        let inputValue = inputField1.value.toLowerCase();
-        let valueSubstring;
-        if (inputValue.length > 0) {
-          for (let j = 0; j < valueArray1.length; j++) {
-            //if (window.CP.shouldStopExecution(0)) break;
-            if (
-              !(
-                inputValue.substring(0, inputValue.length) ===
-                valueArray[j].substring(0, inputValue.length).toLowerCase()
-              )
-            ) {
-              dropdownArray1[j].classList.add("closed");
-            } else {
-              dropdownArray1[j].classList.remove("closed");
-            }
+      let inputValue = inputField1.value.toLowerCase();
+      let valueSubstring;
+      if (inputValue.length > 0) {
+        for (let j = 0; j < valueArray1.length; j++) {
+          //if (window.CP.shouldStopExecution(0)) break;
+          if (
+            !(
+              inputValue.substring(0, inputValue.length) ===
+              valueArray[j].substring(0, inputValue.length).toLowerCase()
+            )
+          ) {
+            dropdownArray1[j].classList.add("closed");
+          } else {
+            dropdownArray1[j].classList.remove("closed");
           }
-          //   window.CP.exitedLoop(0);
-        } else {
-          for (let i = 0; i < dropdownArray1.length; i++) {
-            // if (window.CP.shouldStopExecution(1)) break;
-            dropdownArray1[i].classList.remove("closed");
-          }
-          // window.CP.exitedLoop(1);
         }
-      });
+        //   window.CP.exitedLoop(0);
+      } else {
+        for (let i = 0; i < dropdownArray1.length; i++) {
+          // if (window.CP.shouldStopExecution(1)) break;
+          dropdownArray1[i].classList.remove("closed");
+        }
+        // window.CP.exitedLoop(1);
+      }
+    });
 
-      dropdownArray1.forEach((item) => {
-        item.addEventListener("click", (evt) => {
-          inputField1.value = item.textContent;
-          dropdownArray1.forEach((dropdown) => {
-            dropdown1.classList.add("closed");
-          });
-        });
-      });
-
-      inputField1.addEventListener("focus", () => {
-        inputField1.placeholder = "Select1";
-        dropdown1.classList.add("open");
+    dropdownArray1.forEach((item) => {
+      item.addEventListener("click", (evt) => {
+        inputField1.value = item.textContent;
         dropdownArray1.forEach((dropdown) => {
-          dropdown1.classList.remove("closed");
+          dropdown1.classList.add("closed");
         });
       });
+    });
 
-      inputField1.addEventListener("blur", () => {
-        inputField1.placeholder = "Select location";
+    inputField1.addEventListener("focus", () => {
+      inputField1.placeholder = "Select1";
+      dropdown1.classList.add("open");
+      dropdownArray1.forEach((dropdown) => {
+        dropdown1.classList.remove("closed");
+      });
+    });
+
+    inputField1.addEventListener("blur", () => {
+      inputField1.placeholder = "Select location";
+      dropdown1.classList.remove("open");
+    });
+
+    document.addEventListener("click", (evt) => {
+      const isDropdown = dropdown1.contains(evt.target);
+      const isInput = inputField1.contains(evt.target);
+      if (!isDropdown && !isInput) {
         dropdown1.classList.remove("open");
-      });
-
-      document.addEventListener("click", (evt) => {
-        const isDropdown = dropdown1.contains(evt.target);
-        const isInput = inputField1.contains(evt.target);
-        if (!isDropdown && !isInput) {
-          dropdown1.classList.remove("open");
-        }
-      });
-    </script>
-    <!-- Swiper JS -->
-    <script>
-      function viewmore() {
-        document.getElementById("newsletter").classList.toggle("show");
-        document.getElementById("newsletterall").classList.toggle("show");
-        document.getElementById("newsletter").style.display = "none";
-        //document.getElementById("eve").style.marginTop = "64.2%";
       }
-      function viewless() {
-        //  document.getElementById("newsletter").style.display = "block";
-        document.getElementById("newsletter").classList.toggle("show");
-        document.getElementById("newsletterall").classList.toggle("show");
-        // document.getElementById("eve").style.marginTop = "0%";
+    });
+  </script>
+  <!-- Swiper JS -->
+  <script>
+    function viewmore() {
+      document.getElementById("newsletter").classList.toggle("show");
+      document.getElementById("newsletterall").classList.toggle("show");
+      document.getElementById("newsletter").style.display = "none";
+      //document.getElementById("eve").style.marginTop = "64.2%";
+    }
+    function viewless() {
+      //  document.getElementById("newsletter").style.display = "block";
+      document.getElementById("newsletter").classList.toggle("show");
+      document.getElementById("newsletterall").classList.toggle("show");
+      // document.getElementById("eve").style.marginTop = "0%";
+    }
+  </script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".swiper-container", {
+      // width:100vw;
+      //height:100vh;
+
+      slidesPerView: 1,
+      spaceBetween: 50,
+      slidesPerGroup: 1,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      on: {
+        slidePrevTransitionStart: function () {
+          $(".vid").each(function () {
+            this.contentWindow.postMessage(
+              '{"event":"command","func":"stopVideo","args":""}',
+              "*",
+            );
+          });
+          console.log("stopped");
+          //  document.getElementById("slide").classList.toggle("close");
+          document.getElementById("myVideo").pause();
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          }
+        },
+        slideNextTransitionStart: function () {
+          $(".vid").each(function () {
+            this.contentWindow.postMessage(
+              '{"event":"command","func":"stopVideo","args":""}',
+              "*",
+            );
+          });
+          console.log("stopped");
+          //  document.getElementById("slide").classList.toggle("close");
+          document.getElementById("myVideo").pause();
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          }
+        },
+      },
+    });
+  </script>
+  <script>
+    document
+      .getElementById("swipeup")
+      .addEventListener("touchstart", startTouch, false);
+    document
+      .getElementById("swipeup")
+      .addEventListener("touchmove", moveTouch, false);
+
+    // Swipe Up / Down / Left / Right
+    var initialX = null;
+    var initialY = null;
+
+    function startTouch(e) {
+      initialX = e.touches[0].clientX;
+      initialY = e.touches[0].clientY;
+    }
+
+    function moveTouch(e) {
+      if (initialX === null) {
+        return;
       }
-    </script>
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".swiper-container", {
-        // width:100vw;
-        //height:100vh;
 
-        slidesPerView: 1,
-        spaceBetween: 50,
-        slidesPerGroup: 1,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        on: {
-          slidePrevTransitionStart: function () {
-            //  document.getElementById("slide").classList.toggle("close");
-            document.getElementById("myVideo").pause();
-            if (document.exitFullscreen) {
-              document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-              document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-              document.webkitExitFullscreen();
-            }
-          },
-          slideNextTransitionStart: function () {
-            //  document.getElementById("slide").classList.toggle("close");
-            document.getElementById("myVideo").pause();
-            if (document.exitFullscreen) {
-              document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-              document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-              document.webkitExitFullscreen();
-            }
-          },
-        },
-      });
-    </script>
-    <script>
-      document
-        .getElementById("swipeup")
-        .addEventListener("touchstart", startTouch, false);
-      document
-        .getElementById("swipeup")
-        .addEventListener("touchmove", moveTouch, false);
-
-      // Swipe Up / Down / Left / Right
-      var initialX = null;
-      var initialY = null;
-
-      function startTouch(e) {
-        initialX = e.touches[0].clientX;
-        initialY = e.touches[0].clientY;
+      if (initialY === null) {
+        return;
       }
 
-      function moveTouch(e) {
-        if (initialX === null) {
-          return;
+      var currentX = e.touches[0].clientX;
+      var currentY = e.touches[0].clientY;
+
+      var diffX = initialX - currentX;
+      var diffY = initialY - currentY;
+
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        // sliding horizontally
+        if (diffX > 0) {
+          // swiped left
+          //   document.getElementById("slide").classList.toggle("close");
+          document.getElementById("myVideo").pause();
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          }
+
+          console.log("swiped left");
+        } else {
+          // swiped right
+          //   document.getElementById("slide").classList.toggle("close");
+          document.getElementById("myVideo").pause();
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          }
+
+          console.log("swiped right");
         }
-
-        if (initialY === null) {
-          return;
-        }
-
-        var currentX = e.touches[0].clientX;
-        var currentY = e.touches[0].clientY;
-
-        var diffX = initialX - currentX;
-        var diffY = initialY - currentY;
-
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-          // sliding horizontally
-          if (diffX > 0) {
-            // swiped left
-            //   document.getElementById("slide").classList.toggle("close");
-            document.getElementById("myVideo").pause();
-            if (document.exitFullscreen) {
-              document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-              document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-              document.webkitExitFullscreen();
-            }
-            console.log("swiped left");
-          } else {
-            // swiped right
-            //   document.getElementById("slide").classList.toggle("close");
-            document.getElementById("myVideo").pause();
-            if (document.exitFullscreen) {
-              document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-              document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-              document.webkitExitFullscreen();
-            }
-            console.log("swiped right");
+      } else {
+        // sliding vertically
+        if (diffY > 0) {
+          // swiped up
+          document.getElementById("slide").classList.toggle("close");
+          document.getElementById("myVideo").play();
+          document.getElementById("myVideo").muted = false;
+          if (document.getElementById("myVideo").requestFullscreen) {
+            document.getElementById("myVideo").requestFullscreen();
+          } else if (
+            document.getElementById("myVideo").mozRequestFullScreen
+          ) {
+            document.getElementById("myVideo").mozRequestFullScreen();
+          } else if (
+            document.getElementById("myVideo").webkitRequestFullscreen
+          ) {
+            document.getElementById("myVideo").webkitRequestFullscreen();
+          } else if (document.getElementById("myVideo").msRequestFullscreen) {
+            document.getElementById("myVideo").msRequestFullscreen();
           }
         } else {
-          // sliding vertically
-          if (diffY > 0) {
-            // swiped up
-            document.getElementById("slide").classList.toggle("close");
-            document.getElementById("myVideo").play();
-            document.getElementById("myVideo").muted = false;
-            if (document.getElementById("myVideo").requestFullscreen) {
-              document.getElementById("myVideo").requestFullscreen();
-            } else if (
-              document.getElementById("myVideo").mozRequestFullScreen
-            ) {
-              document.getElementById("myVideo").mozRequestFullScreen();
-            } else if (
-              document.getElementById("myVideo").webkitRequestFullscreen
-            ) {
-              document.getElementById("myVideo").webkitRequestFullscreen();
-            } else if (document.getElementById("myVideo").msRequestFullscreen) {
-              document.getElementById("myVideo").msRequestFullscreen();
-            }
-          } else {
-            // swiped down
-            document.getElementById("slide").classList.toggle("close");
-            document.getElementById("myVideo").pause();
-            if (document.exitFullscreen) {
-              document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-              document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-              document.webkitExitFullscreen();
-            }
+          // swiped down
+          document.getElementById("slide").classList.toggle("close");
+          document.getElementById("myVideo").pause();
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
           }
         }
-
-        initialX = null;
-        initialY = null;
-
-        e.preventDefault();
       }
-    </script>
-    <script>
-      function goBack() {
-        window.history.back();
-      }
-    </script>
-  </body>
+
+      initialX = null;
+      initialY = null;
+
+      e.preventDefault();
+    }
+  </script>
+  <script>
+    function stopyou() {
+      $(".vid").each(function () {
+        this.contentWindow.postMessage(
+          '{"event":"command","func":"stopVideo","args":""}',
+          "*",
+        );
+      });
+      console.log("stopped");
+    }
+  </script>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+
 </html>

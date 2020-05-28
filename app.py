@@ -32,7 +32,6 @@ auth = firebase.auth()
 # admin Credentials
 admin_email = {"admin1@gmail.com": "password", "admin2@gmail.com": "password"}
 
-user = None
 
 # db.child("Names").push({"Name": "Utsav", "Email" : "utsav@gmail.com"})
 # db.child("Names/Student Names/-M4w_T2u6lIePYjnq1Ht").update({"Name": "Utsav", "Email" : "maan@gmail.com"})
@@ -129,31 +128,31 @@ def index():
     except KeyError:
         allposts = db.child("Posts").get()
         allwebinar = db.child("Webinar").get()
-        if request.method == "POST":
-            if request.form["submit"] == "Send Message":
-                try:
-                    name = request.form["name"]
-                    email = request.form["email"]
-                    message = request.form["message"]
-                    msg = Message(
-                        "Hello {}".format(name.capitalize()),
-                        sender="sample1test.it2@gmail.com",
-                        recipients=[email],
-                    )
-                    msg.body = "Hello {}, \n We received your mail regarding a query \n This is your Query :- {} \n \n We hope to resolve your Query as soon as possible".format(
-                        name.capitalize(), message
-                    )
-                    mail.send(msg)
-                    query = {"email": email, "message": message, "name": name}
-                    db.child("Queries").push(query)
-                    return render_template("thankyou.htm")
-                except:
-                    return render_template("failed.htm")
+        # if request.method == "POST":
+        #     if request.form["submit"] == "Send Message":
+        #         try:
+        #             name = request.form["name"]
+        #             email = request.form["email"]
+        #             message = request.form["message"]
+        #             msg = Message(
+        #                 "Hello {}".format(name.capitalize()),
+        #                 sender="sample1test.it2@gmail.com",
+        #                 recipients=[email],
+        #             )
+        #             msg.body = "Hello {}, \n We received your mail regarding a query \n This is your Query :- {} \n \n We hope to resolve your Query as soon as possible".format(
+        #                 name.capitalize(), message
+        #             )
+        #             mail.send(msg)
+        #             query = {"email": email, "message": message, "name": name}
+        #             db.child("Queries").push(query)
+        #             return render_template("thankyou.htm")
+        #         except:
+        #             return render_template("failed.htm")
 
-                # if allwebinar.val() == None:
-                #     return render_template("index.html")
-                # else:
-                    # return render_template("index.html", posts=allposts)
+        # if allwebinar.val() == None:
+        #     return render_template("index.html")
+        # else:
+        # return render_template("index.html", posts=allposts)
         return render_template("index.html", querys=allwebinar)
 
 
@@ -165,7 +164,7 @@ def login():
             email = request.form["email"]
             password = request.form["password"]
             try:
-                # global user
+
                 # login in the user
                 user = auth.sign_in_with_email_and_password(email, password)
                 # return user
@@ -311,7 +310,7 @@ def newsf():
 
     try:
         print(session['usr'])
-        news_get = db.child("News Updates").get()
+
         users = db.child("Student Name").get()
         user = users.val()
         abc = auth.get_account_info(session['usr'])
@@ -324,7 +323,12 @@ def newsf():
                     first_name = values["Name"]
                     last_name = values["Lastname"]
                     dept = values["Department"].upper()
-                    return render_template("news.html", allnews=news_get, first_detail=first_name, last_detail=last_name, depart=dept)
+                    try:
+                        news_get = db.child("News Updates").get()
+                        return render_template("news.html", allnews=news_get, first_detail=first_name, last_detail=last_name, depart=dept)
+                    except:
+                        return "No NEWS FOUND."
+
     except KeyError:
         return redirect(url_for("index"))
 
@@ -496,6 +500,90 @@ def courses1():
         return render_template("onlinecourse.html")
     else:
         return render_template("onlinecourse.html", querys=allquery)
+
+
+@app.route("/contact1", methods=["GET", "POST"])
+def contact1():
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    # if request.method == "POST":
+    if request.method == "POST":
+        if request.form["submit"] == "Send Message":
+            try:
+                name = request.form["name"]
+                email = request.form["email"]
+                message = request.form["message"]
+                msg = Message(
+                    "Hello {}".format(name.capitalize()),
+                    sender="sample1test.it2@gmail.com",
+                    recipients=[email],
+                )
+                msg.body = "Hello {}, \n We received your mail regarding a query \n This is your Query :- {} \n \n We hope to resolve your Query as soon as possible".format(
+                    name.capitalize(), message)
+                mail.send(msg)
+                query = {"email": email,
+                         "message": message, "name": name}
+                db.child("Queries").push(query)
+                return redirect(url_for("thank"))
+            except:
+                return redirect(url_for("fail"))
+    return render_template("contact1.html")
+
+
+@app.route("/thank", methods=["GET", "POST"])
+def thank():
+    render_template("thankyou.htm")
+
+
+@app.route("/fail", methods=["GET", "POST"])
+def fail():
+    render_template("failed.htm")
+
+
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    # if auth.current_user == None:
+    #     return redirect(url_for("login"))
+    # if request.method == "POST":
+
+    users = db.child("Student Name").get()
+    user = users.val()
+    if request.method == "POST":
+        if request.form["submit"] == "Send Message":
+            try:
+                name = request.form["name"]
+                email = request.form["email"]
+                message = request.form["message"]
+                msg = Message(
+                    "Hello {}".format(name.capitalize()),
+                    sender="sample1test.it2@gmail.com",
+                    recipients=[email],
+                )
+                msg.body = "Hello {}, \n We received your mail regarding a query \n This is your Query :- {} \n \n We hope to resolve your Query as soon as possible".format(
+                    name.capitalize(), message)
+                mail.send(msg)
+                query = {"email": email,
+                         "message": message, "name": name}
+                db.child("Queries").push(query)
+                return redirect(url_for("thank"))
+            except:
+                return redirect(url_for("fail"))
+    try:
+        print(session['usr'])
+        abc = auth.get_account_info(session['usr'])
+        for key, values in user.items():
+            # return values
+            for inkey, invalues in values.items():
+                # return inkey
+                if abc["users"][0]["email"] in invalues:
+                    user_name = values["Name"].upper()
+                    dept = values["Department"].upper()
+                    first_name = values["Name"]
+                    last_name = values["Lastname"]
+                    return render_template("contact.html", first_detail=first_name,
+                                           last_detail=last_name,  depart=dept)
+    except KeyError:
+        return redirect(url_for("index"))
 
 
 @app.route("/events", methods=["GET", "POST"])
