@@ -524,20 +524,10 @@ def contact1():
                 query = {"email": email,
                          "message": message, "name": name}
                 db.child("Queries").push(query)
-                return redirect(url_for("thank"))
+                return render_template("contact1.html", message="Thankyou! We will Connect to you as soon as possible", color="#6BBD6E")
             except:
-                return redirect(url_for("fail"))
+                return render_template("contact1.html", message="Something Went Wrong. Please try again", color="#F66359")
     return render_template("contact1.html")
-
-
-@app.route("/thank", methods=["GET", "POST"])
-def thank():
-    render_template("thankyou.htm")
-
-
-@app.route("/fail", methods=["GET", "POST"])
-def fail():
-    render_template("failed.htm")
 
 
 @app.route("/contact", methods=["GET", "POST"])
@@ -565,9 +555,9 @@ def contact():
                 query = {"email": email,
                          "message": message, "name": name}
                 db.child("Queries").push(query)
-                return redirect(url_for("thank"))
+                return render_template("contact.html", message="Thankyou! We will Connect to you as soon as possible", color="#6BBD6E")
             except:
-                return redirect(url_for("fail"))
+                return render_template("contact.html", message="Something Went Wrong. Please try again", color="#F66359")
     try:
         print(session['usr'])
         abc = auth.get_account_info(session['usr'])
@@ -585,6 +575,14 @@ def contact():
     except KeyError:
         return redirect(url_for("index"))
 
+# @app.route("/thank", methods=["GET", "POST"])
+# def thank():
+#     render_template("thankyou.htm")
+
+
+# @app.route("/fail", methods=["GET", "POST"])
+# def fail():
+#     render_template("failed.htm")
 
 @app.route("/events", methods=["GET", "POST"])
 def events():

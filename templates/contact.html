@@ -188,12 +188,18 @@
         padding: 0 2rem;
         text-align: center;
         border-radius: 1.75rem 1.75rem 0 0;
-      ">
+      "> {% if message %}
+      <div class="alert1" style="left: 0;
+      border-radius: inherit; background-color:{{ color }}; ">
+        <span class="closebtn" onclick="this.parentElement.style.display='none'; ">&times;</span>
+        {{message}}
+      </div>
+      {% else %} {% endif %}
       <div class="tab-content" style="
           padding: 0;
           background: #ffffff;
           text-align: center;
-          margin-top: 5vh;
+          margin-top: 9vh;
         ">
         <form autocomplete="off" method="POST" style="padding: 0; background-color: transparent;">
           <h1 class="log-title" style="">
